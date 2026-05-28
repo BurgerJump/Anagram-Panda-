@@ -287,7 +287,11 @@ button{
 
 .message{
 
-  background:#ffb08f;
+  background:
+linear-gradient(
+  30deg,
+  #ffb36b,
+  #ff7f7f);
 
   border-radius:14px;
 
@@ -303,7 +307,7 @@ button{
 
   max-height:120px;
 
-  margin-bottom:60px;
+  margin-bottom:70px;
 
   color:#ffffff;
 
@@ -317,4 +321,35 @@ button{
   justify-content:center;
 
   text-align:center;
+}
+
+.restartBtn{
+
+  position:fixed;
+
+  bottom:8px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:calc(95% - 16px);
+
+  max-width:414px;
+
+  height:44px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:#6ca8ff;
+
+  color:#ffffff;
+
+  font-weight:bold;
+
+  font-size:16px;
+
+  z-index:99999;
 }
