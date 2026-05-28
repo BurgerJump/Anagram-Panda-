@@ -66,14 +66,14 @@ h2{
 
   margin:0;
 
-  font-size:36px;
+  font-size:32px;
 
   color:#ffffff;
 
   letter-spacing:1px;
 
   text-shadow:
-    0 2px 5px rgba(0,0,0,0.35);
+    0 2px 15px rgba(0,0,0,0.35);
 }
 
 /* ========================= */
@@ -177,7 +177,7 @@ h2{
 
   border-radius:16px;
 
-  background:#ffeebb;
+  background:#ff77bb;
 
   color:#ffffff;
 
@@ -331,7 +331,7 @@ width:95%;
   background:
   linear-gradient(
     80deg,
-    #6ca8cc,
+    #6ca8aa,
     #6ca8ff
   );
   
