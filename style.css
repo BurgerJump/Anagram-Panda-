@@ -52,7 +52,7 @@ body{
 
   flex-direction:column;
 
-  gap:12px;
+  gap:16px;
 
   overflow:hidden;
 }
@@ -66,14 +66,14 @@ h2{
 
   margin:0;
 
-  font-size:22px;
+  font-size:26px;
 
   color:#ffffff;
 
   letter-spacing:1px;
 
   text-shadow:
-    0 2px 5px rgba(0,0,0,0.35);
+    0 2px 15px rgba(0,0,0,0.35);
 }
 
 /* ========================= */
@@ -181,7 +181,7 @@ h2{
 
   color:#ffffff;
 
-  font-size:30px;
+  font-size:38px;
 
   font-weight:bold;
 
@@ -239,7 +239,7 @@ button{
 
   padding:10px;
 
-  font-size:16px;
+  font-size:24px;
 
   font-weight:bold;
 
@@ -304,7 +304,7 @@ linear-gradient(
 
   overflow-y:auto;
 
-  font-size:16px;
+  font-size:20px;
 
   font-weight:bold;
 
@@ -355,7 +355,7 @@ linear-gradient(
 
   font-weight:bold;
 
-  font-size:16px;
+  font-size:24px;
 
   z-index:99999;
 }
