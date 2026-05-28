@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Anagram Panda</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ff6a00">
+
+</head>
+
+<body>
+
+<div class="game">
+
+<h1>ANAGRAM 🐼 PANDA</h1>
+
+<div class="topBar">
+
+<div class="timer">
+⏳️
+<span id="time">
+90
+</span>
+</div>
+
+<div class="score">
+✅️
+<span id="score">
+0
+</span>
+</div>
+
+</div>
+
+<div id="wordSlots"
+class="wordSlots">
+
+</div>
+
+<div id="letters"
+class="lettersGrid">
+
+</div>
+
+<div class="buttons">
+
+<button onclick="deleteLetter()">
+DELETE
+</button>
+
+<button onclick="shuffleLetters()">
+SHUFFLE
+</button>
+
+<button onclick="clearWord()">
+CLEAR
+</button>
+
+</div>
+
+<button
+class="submitBtn"
+onclick="submitWord()">
+
+SUBMIT
+
+</button>
+
+<div id="message"
+class="message">
+</div>
+
+<button class="restartBtn" onclick="restartGame()">
+NEW
+</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
