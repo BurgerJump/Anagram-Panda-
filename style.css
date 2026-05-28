@@ -66,7 +66,7 @@ h2{
 
   margin:0;
 
-  font-size:22px;
+  font-size:28px;
 
   color:#ffffff;
 
@@ -98,7 +98,7 @@ h2{
 
   padding:6px;
 
-  font-size:18px;
+  font-size:24px;
 
   font-weight:bold;
 
@@ -141,7 +141,7 @@ h2{
 
   align-items:center;
 
-  font-size:20px;
+  font-size:24px;
 
   font-weight:bold;
 
@@ -181,7 +181,7 @@ h2{
 
   color:#ffffff;
 
-  font-size:30px;
+  font-size:36px;
 
   font-weight:bold;
 
@@ -239,7 +239,7 @@ button{
 
   padding:10px;
 
-  font-size:16px;
+  font-size:24px;
 
   font-weight:bold;
 
@@ -281,7 +281,7 @@ linear-gradient(
 
   overflow-y:auto;
 
-  font-size:16px;
+  font-size:20px;
 
   font-weight:bold;
 
@@ -334,7 +334,7 @@ width:95%;
 
   font-weight:bold;
 
-  font-size:20px;
+  font-size:24px;
 
   z-index:99999;
 }
