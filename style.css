@@ -66,14 +66,14 @@ h2{
 
   margin:0;
 
-  font-size:32px;
+  font-size:36px;
 
   color:#ffffff;
 
   letter-spacing:1px;
 
   text-shadow:
-    0 2px 5px rgba(0,0,0,0.35);
+    0 12px 15px rgba(0,0,0,0.35);
 }
 
 /* ========================= */
