@@ -417,7 +417,7 @@ function startTimer(){
 
       message.innerHTML =
 
-        "⏰ TIME OVER<br><br>" +
+        "⏰ TIME OVER<br>" +
 
         "🏆 LONGEST WORD (" +
 
@@ -532,14 +532,12 @@ function submitWord(){
 
   message.innerHTML =
 
-    "✅ " +
-
-    "<span style='color:#ffe600;font-size:28px'>" +
+    "<span style='color:#ffe600;font-size:26px'>" +
 
     word +
 
     "</span>" +
-
+    "✅ " +
     letterPoints +
 
     " LETTERS  ";
@@ -548,7 +546,7 @@ function submitWord(){
 
     message.innerHTML +=
 
-      "⏳ BONUS " +
+      "⏳ BONUS +" +
 
       timeBonus;
   }
@@ -569,13 +567,13 @@ function submitWord(){
 
   message.innerHTML +=
 
-    "  ⭐ TOTAL: " +
+    "  TOTAL: " +
 
     points +
 
     "<br>" +
 
-    "🏆 LONGEST WORD (" +
+    "LONGEST (" +
 
     bestWord.length +
 
