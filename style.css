@@ -66,14 +66,14 @@ h2{
 
   margin:0;
 
-  font-size:33px;
+  font-size:34px;
 
   color:#ffffff;
 
   letter-spacing:1px;
 
   text-shadow:
-    0 2px 15px rgba(0,0,0,0.35);
+    0 12px 15px rgba(0,0,0,0.35);
 }
 
 /* ========================= */
@@ -92,7 +92,7 @@ h2{
 
   flex:1;
 
-  background:#C44900;
+  background:#ff8c66;
 
   border-radius:12px;
 
