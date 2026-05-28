@@ -25,7 +25,7 @@ body{
 
   position:relative;
 
-  width:95%;
+  width:100%;
 
   max-width:430px;
 
@@ -38,7 +38,7 @@ body{
     #d97d7d
   );
 
-  border-radius:20px;
+  border-radius:10px;
 
   padding:8px;
 
@@ -66,14 +66,14 @@ h2{
 
   margin:0;
 
-  font-size:32px;
+  font-size:22px;
 
   color:#ffffff;
 
   letter-spacing:1px;
 
   text-shadow:
-    0 12px 15px rgba(0,0,0,0.35);
+    0 2px 5px rgba(0,0,0,0.35);
 }
 
 /* ========================= */
@@ -98,7 +98,7 @@ h2{
 
   padding:6px;
 
-  font-size:24px;
+  font-size:18px;
 
   font-weight:bold;
 
@@ -127,7 +127,7 @@ h2{
 
 .slot{
 
-  width:30px;
+  width:36px;
 
   height:40px;
 
@@ -141,7 +141,7 @@ h2{
 
   align-items:center;
 
-  font-size:26px;
+  font-size:20px;
 
   font-weight:bold;
 
@@ -177,7 +177,7 @@ h2{
 
   border-radius:16px;
 
-  background:#ffc93c;
+  background:#ffc9bb;
 
   color:#ffffff;
 
@@ -239,7 +239,7 @@ button{
 
   padding:10px;
 
-  font-size:20px;
+  font-size:16px;
 
   font-weight:bold;
 
@@ -284,7 +284,6 @@ button{
 /* ========================= */
 /* MESSAGE */
 /* ========================= */
-
 .message{
 
   background:
@@ -297,15 +296,19 @@ linear-gradient(
 
   padding:8px;
 
+  height:120px;
+
+  min-height:120px;
+
+  max-height:120px;
+
   overflow-y:auto;
 
-  font-size:13px;
+  font-size:16px;
 
   font-weight:bold;
 
   line-height:1.15;
-
-  max-height:120px;
 
   margin-bottom:70px;
 
@@ -321,7 +324,10 @@ linear-gradient(
   justify-content:center;
 
   text-align:center;
+
+  box-sizing:border-box;
 }
+
 
 .restartBtn{
 
@@ -349,7 +355,7 @@ linear-gradient(
 
   font-weight:bold;
 
-  font-size:20px;
+  font-size:16px;
 
   z-index:99999;
 }
