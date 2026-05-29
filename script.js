@@ -66,6 +66,19 @@ let timer = null;
 
 let gameOver = false;
 
+let wordHistory = [];
+
+function saveTimeOverWord(word){
+
+  wordHistory.push({
+    word: word,
+    type: "timeout"
+  });
+
+  console.log("TIME OVER WORD:", word);
+}
+
+
 /* ========================= */
 /* DICTIONARY */
 /* ========================= */
@@ -391,55 +404,60 @@ function getLongestWords(bestWord){
 /* TIMER */
 /* ========================= */
 
+
 function startTimer(){
 
   clearInterval(timer);
+  gameOver = false;
 
-  timer = setInterval(
-  ()=>{
+  timer = setInterval(()=>{
+
+    if(gameOver) return;
 
     time--;
-
-    if(time < 0)
-    time = 0;
-
-    timeText.innerText =
-    time;
+    timeText.innerText = time;
 
     if(time <= 0){
 
+      time = 0;
+      timeText.innerText = 0;
+
       clearInterval(timer);
+      gameOver = true;
 
-      const bestWord =
-      findBestWord();
+      const word = currentWord.trim().toUpperCase();
 
-      const longestWords =
-      getLongestWords(bestWord);
+      if(word.length < 3){
+        message.innerHTML = "❌ MIN 3 LETTERS";
+        currentWord = "";
+        renderSlots();
+        return;
+      }
+
+      saveTimeOverWord(word);
+
+      const bestWord = findBestWord();
+      const longestWords = getLongestWords(bestWord);
+
+      let letterPoints = word.length * 10;
 
       message.innerHTML =
-
-        "⏰ TIME OVER<br>" +
-
+        "<span style='color:#ffe600;font-size:22px'>" +
+        word +
+        "</span><br>" +
+        "⭐ " + letterPoints + " POINTS<br><br>" +
         "🏆 LONGEST WORD (" +
-
         bestWord.length +
-
         ")<br>" +
-
         "<span style='color:#00ff99'>" +
-
         longestWords.join(" • ") +
-
         "</span>";
 
       currentWord = "";
-
       renderSlots();
-
-      gameOver = true;
     }
 
-  },1000);
+  }, 1000);
 }
 
 /* ========================= */
