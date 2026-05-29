@@ -352,3 +352,15 @@ width:95%;
 
   text-size-adjust:100%;
   }
+html,
+body,
+button,
+div,
+span,
+h1,
+h2{
+
+  -webkit-text-size-adjust:none;
+
+  text-size-adjust:none;
+  }
