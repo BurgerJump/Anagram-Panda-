@@ -344,3 +344,11 @@ width:95%;
 
   z-index:99999;
 }
+
+
+  html{
+
+  -webkit-text-size-adjust:100%;
+
+  text-size-adjust:100%;
+  }
