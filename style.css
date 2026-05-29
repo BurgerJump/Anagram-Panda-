@@ -253,8 +253,11 @@ button{
 
 .submitBtn{
 
-  background:#006d6f;
-
+  background:
+linear-gradient(
+  30deg,
+  #006d99,
+  #006d6f);
   width:100%;
 }
 
@@ -273,11 +276,11 @@ linear-gradient(
 
   padding:8px;
 
-  height:130px;
+  height:140px;
 
   min-height:120px;
 
-  max-height:130px;
+  max-height:140px;
 
   overflow-y:auto;
 
