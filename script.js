@@ -428,7 +428,7 @@ function startTimer(){
       const word = currentWord.trim().toUpperCase();
 
       if(word.length < 3){
-        message.innerHTML = "❌ MIN 3 LETTERS";
+        message.innerHTML = "❌⌛️";
         currentWord = "";
         renderSlots();
         return;
@@ -445,13 +445,19 @@ function startTimer(){
         "<span style='color:#ffe600;font-size:22px'>" +
         word +
         "</span>" +
-        "⭐ " + letterPoints + " POINTS<br><br>" +
-        "LONGEST WORD (" +
+        "⭐ " + letterPoints + " POINTS<br>" +
+
+"<span style='color:#00ff99'>" +
+        
+"LONGEST WORD (" +
         bestWord.length +
         ")" +
-        "<span style='color:#00ff99'>" +
+        
+        "</span>"
+        
         longestWords.join(" • ") +
-        "</span>";
+        
+        ;
 
       currentWord = "";
       renderSlots();
