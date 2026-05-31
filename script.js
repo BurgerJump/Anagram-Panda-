@@ -66,19 +66,6 @@ let timer = null;
 
 let gameOver = false;
 
-let wordHistory = [];
-
-function saveTimeOverWord(word){
-
-  wordHistory.push({
-    word: word,
-    type: "timeout"
-  });
-
-  console.log("TIME OVER WORD:", word);
-}
-
-
 /* ========================= */
 /* DICTIONARY */
 /* ========================= */
@@ -404,93 +391,53 @@ function getLongestWords(bestWord){
 /* TIMER */
 /* ========================= */
 
-
 function startTimer(){
 
   clearInterval(timer);
-  gameOver = false;
 
-  timer = setInterval(()=>{
-
-    if(gameOver) return;
+  timer = setInterval(
+  ()=>{
 
     time--;
-    timeText.innerText = time;
+
+    if(time < 0)
+    time = 0;
+
+    timeText.innerText =
+    time;
 
     if(time <= 0){
 
-      time = 0;
-      timeText.innerText = 0;
-
       clearInterval(timer);
-      gameOver = true;
 
-      const word = currentWord.trim().toUpperCase();
+      const bestWord =
+      findBestWord();
 
-      if(word.length < 3){
-        message.innerHTML = "❌⌛️";
-        currentWord = "";
-        renderSlots();
-        return;
-      }
-
-      saveTimeOverWord(word);
-
-      const bestWord = findBestWord();
-      const longestWords = getLongestWords(bestWord);
-
-      let letterPoints = word.length * 10;
+      const longestWords =
+      getLongestWords(bestWord);
 
       message.innerHTML =
-            "<span style='color:#ffe600;font-size:26px'>" +
 
-    word +
+        "🏆 LONGEST WORD (" +
 
-    "</span>" +
-    "✅ " +
-    letterPoints +
+        bestWord.length +
 
-    " POINTS  ";
+        ")<br>" +
 
-  if(longWordBonus > 0){
+        "<span style='color:#00ff99'>" +
 
-    message.innerHTML +=
+        longestWords.join(" • ") +
 
-      "<br>👑 LONGEST BONUS +100";
-  }
-
-  if(allLettersBonus > 0){
-
-    message.innerHTML +=
-
-      "🔥 9 LETTERS +100";
-  }
-
-  message.innerHTML +=
-
-    "  TOTAL: " +
-
-    points +
-
-    "<br>" +
-    "<span style='color:#00dd99'>" +
-    "LONGEST (" +
-
-    bestWord.length +
-
-    ") " +
-
-   "</span>"+
-
-    longestWords.join(" • ") 
-
-        ;
+        "</span>";
 
       currentWord = "";
+
       renderSlots();
+
+      gameOver = true;
     }
 
-  }, 1000);
+  },1000);
 }
 
 /* ========================= */
