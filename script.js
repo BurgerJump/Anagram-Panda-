@@ -444,11 +444,11 @@ function startTimer(){
       message.innerHTML =
         "<span style='color:#ffe600;font-size:22px'>" +
         word +
-        "</span><br>" +
+        "</span>" +
         "⭐ " + letterPoints + " POINTS<br><br>" +
-        "🏆 LONGEST WORD (" +
+        "LONGEST WORD (" +
         bestWord.length +
-        ")<br>" +
+        ")" +
         "<span style='color:#00ff99'>" +
         longestWords.join(" • ") +
         "</span>";
