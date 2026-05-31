@@ -418,7 +418,7 @@ function startTimer(){
 
       message.innerHTML =
 
-        "⌛️<br><br>LONGEST WORD (" +
+        "⌛️ LONGEST WORD (" +
 
         bestWord.length +
 
