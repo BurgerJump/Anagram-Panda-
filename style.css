@@ -73,7 +73,7 @@ h2{
   letter-spacing:1px;
 
   text-shadow:
-    0 12px 15px rgba(0,0,0,0.35);
+    0 12px 15px rgba(0,0,0,0.39);
 }
 
 /* ========================= */
@@ -276,11 +276,11 @@ linear-gradient(
 
   padding:8px;
 
-  height:140px;
+  height:150px;
 
   min-height:120px;
 
-  max-height:140px;
+  max-height:160px;
 
   overflow-y:auto;
 
