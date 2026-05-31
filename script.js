@@ -445,7 +445,7 @@ function startTimer(){
         "<span style='color:#ffe600;font-size:22px'>" +
         word +
         "</span>" +
-        "⭐ " + letterPoints + " POINTS" +
+        "⭐ " + letterPoints + " POINTS<br>" +
 
 "<span style='color:#00dd99'>" +
         
