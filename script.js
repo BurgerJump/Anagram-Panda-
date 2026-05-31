@@ -453,7 +453,7 @@ function startTimer(){
         bestWord.length +
         ")" +
         
-        "</span>"
+        "</span>" +
         
         longestWords.join(" • ") +
         
