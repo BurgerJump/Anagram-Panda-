@@ -422,7 +422,7 @@ function startTimer(){
 
         bestWord.length +
 
-        ")<br>" +
+        ")" +
 
         "<span style='color:#00ff99'>" +
 
@@ -506,7 +506,7 @@ function submitWord(){
 
   if(word.length === 9){
 
-    allLettersBonus = 100;
+    allLettersBonus = 400;
   }
 
   if(
@@ -554,14 +554,14 @@ function submitWord(){
 
     message.innerHTML +=
 
-      "<br>👑 LONGEST BONUS +100";
+      "<br>LONGEST BONUS +100";
   }
 
   if(allLettersBonus > 0){
 
     message.innerHTML +=
 
-      "🔥 9 LETTERS +100";
+      "🐼 9 LETTERS +400";
   }
 
   message.innerHTML +=
@@ -569,8 +569,7 @@ function submitWord(){
     "  TOTAL: " +
 
     points +
-
-    "<br>" +
+    
     "<span style='color:#00dd99'>" +
     "LONGEST (" +
 
