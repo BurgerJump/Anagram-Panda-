@@ -442,21 +442,48 @@ function startTimer(){
       let letterPoints = word.length * 10;
 
       message.innerHTML =
-        "<span style='color:#ffe600;font-size:22px'>" +
-        word +
-        "</span>" +
-        "⭐ " + letterPoints + " POINTS<br>" +
+            "<span style='color:#ffe600;font-size:26px'>" +
 
-"<span style='color:#00dd99'>" +
-        
-"LONGEST WORD (" +
-        bestWord.length +
-        ")" +
-        
-        "</span>" +
-        
-        longestWords.join(" • ") +
-        
+    word +
+
+    "</span>" +
+    "✅ " +
+    letterPoints +
+
+    " POINTS  ";
+
+  if(longWordBonus > 0){
+
+    message.innerHTML +=
+
+      "<br>👑 LONGEST BONUS +100";
+  }
+
+  if(allLettersBonus > 0){
+
+    message.innerHTML +=
+
+      "🔥 9 LETTERS +100";
+  }
+
+  message.innerHTML +=
+
+    "  TOTAL: " +
+
+    points +
+
+    "<br>" +
+    "<span style='color:#00dd99'>" +
+    "LONGEST (" +
+
+    bestWord.length +
+
+    ") " +
+
+   "</span>"+
+
+    longestWords.join(" • ") 
+
         ;
 
       currentWord = "";
