@@ -445,9 +445,9 @@ function startTimer(){
         "<span style='color:#ffe600;font-size:22px'>" +
         word +
         "</span>" +
-        "⭐ " + letterPoints + " POINTS<br>" +
+        "⭐ " + letterPoints + " POINTS" +
 
-"<span style='color:#00ff99'>" +
+"<span style='color:#00dd99'>" +
         
 "LONGEST WORD (" +
         bestWord.length +
