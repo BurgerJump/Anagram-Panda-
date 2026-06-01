@@ -537,15 +537,14 @@ function submitWord(){
 
     "</span>" +
     "✅ " +
-    letterPoints +
-
-    " POINTS  ";
+    letterPoints
+    ;
 
   if(timeBonus > 0){
 
     message.innerHTML +=
 
-      "⏳ BONUS +" +
+      "  ⏳ BONUS +" +
 
       timeBonus;
   }
