@@ -278,7 +278,7 @@ linear-gradient(
 
   height:170px;
 
-  min-height:120px;
+  min-height:170px;
 
   max-height:170px;
 
@@ -301,7 +301,7 @@ linear-gradient(
 
   flex-direction:column;
 
-  justify-content:center;
+  justify-content:top;
 
   text-align:center;
 
