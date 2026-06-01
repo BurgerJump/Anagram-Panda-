@@ -384,7 +384,7 @@ function getLongestWords(bestWord){
 
     )
 
-  ].slice(0,3);
+  ].slice(0,5);
 }
 
 /* ========================= */
