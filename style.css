@@ -11,7 +11,7 @@ body{
   #ff7f7f);
 
   
-font-family: "Arial Rounded MT Bold", sans-serif;
+font-family: Arial Rounded MT Bold, sans-serif;
 
   
 
@@ -37,7 +37,7 @@ font-family: "Arial Rounded MT Bold", sans-serif;
 
   background:
   linear-gradient(
-    180deg,
+    170deg,
     #f0a07a,
     #d97d7d
   );
@@ -291,7 +291,7 @@ linear-gradient(
 
   line-height:1.15;
 
-  margin-bottom:40px;
+  margin-bottom:20px;
 
   color:#ffffff;
 
