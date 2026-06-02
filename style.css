@@ -276,11 +276,11 @@ linear-gradient(
 
   padding:8px;
 
-  height:170px;
+  height:180px;
 
-  min-height:170px;
+  min-height:180px;
 
-  max-height:170px;
+  max-height:180px;
 
   overflow-y:auto;
 
@@ -290,7 +290,7 @@ linear-gradient(
 
   line-height:1.15;
 
-  margin-bottom:40px;
+  margin-bottom:20px;
 
   color:#ffffff;
 
