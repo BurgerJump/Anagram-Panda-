@@ -73,7 +73,7 @@ h2{
   letter-spacing:1px;
 
   text-shadow:
-    0 12px 15px rgba(0,0,0,0.59);
+    0 12px 15px rgba(0,0,0,0.35);
 }
 
 /* ========================= */
@@ -253,11 +253,8 @@ button{
 
 .submitBtn{
 
-  background:
-linear-gradient(
-  30deg,
-  #006d99,
-  #006d6f);
+  background:#006d6f;
+
   width:100%;
 }
 
@@ -276,11 +273,11 @@ linear-gradient(
 
   padding:8px;
 
-  height:180px;
+  height:140px;
 
-  min-height:180px;
+  min-height:120px;
 
-  max-height:180px;
+  max-height:140px;
 
   overflow-y:auto;
 
@@ -290,7 +287,7 @@ linear-gradient(
 
   line-height:1.15;
 
-  margin-bottom:20px;
+  margin-bottom:40px;
 
   color:#ffffff;
 
@@ -303,7 +300,7 @@ linear-gradient(
 
   justify-content:top;
 
-  text-align:left;
+  text-align:center;
 
   box-sizing:border-box;
 }
@@ -325,7 +322,7 @@ linear-gradient(
 
   height:44px;
   
-width:96%;
+width:95%;
 
   border:none;
 
