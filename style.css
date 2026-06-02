@@ -10,7 +10,11 @@ body{
   #ffb36b,
   #ff7f7f);
 
-  font-family:Arial;
+  
+font-family: "Arial Rounded MT Bold", sans-serif;
+
+  
+
 
   display:flex;
 
