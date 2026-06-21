@@ -5,7 +5,8 @@
   "short_name": "Anagram Panda",
   "description": "Challenge your vocabulary by finding the longest possible words from 9 letters.",
   "start_url": "/",
-  "display": "standalone",
+  
+  "display": "fullscreen",
   "background_color": "#111111",
   "theme_color": "#ff6a00",
   "orientation": "portrait",
