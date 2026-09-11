@@ -1,110 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-  
-<meta
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta
 name="viewport"
 content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-  
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QW52EWJVKH"></script>
 
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-QW52EWJVKH"></script><script>
+window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-QW52EWJVKH');
-    </script>
+function gtag(){
+  dataLayer.push(arguments);
+}
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7210315701110215"
-     crossorigin="anonymous"></script>
-  
-  <title>Anagram Panda</title>
+gtag('js', new Date());
+gtag('config', 'G-QW52EWJVKH');
+</script><title>Anagram Panda</title><meta
+name="description"
+content="Anagram Panda is a fast 9-letter word puzzle game. Find the best words you can before the 90-second timer runs out.">
 
-<link rel="stylesheet"
-href="style.css">
 
-<link rel="manifest" href="/manifest.json">
 
-<meta name="theme-color" content="#ff6a00">
 
-</head>
+<link rel="stylesheet" href="home.css"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#ff7f7f"></head>
 
-<body>
+<body><main class="home"><section class="hero">
 
-<div class="game">
+<div class="titleArea">
 
-<h1>ANAGRAM üêº PANDA</h1>
-
-<div class="topBar">
-
-<div class="timer">
-‚è≥Ô∏è
-<span id="time">
-90
-</span>
-</div>
-
-<div class="score">
-‚≠êÔ∏è
-<span id="score">
-0
-</span>
-</div>
+<a href="game.html" class="gameLogo">
+  <img src="logo.png" alt="Anagram Panda">
+</a>
 
 </div>
 
-<div id="wordSlots"
-class="wordSlots">
+<section class="about"><p>
+  You get 9 random letters to find the longest word possible.
+  Tap the letters and press SUBMIT to score! Longer words are worth more points.
+</p><p>
+  Can you beat the panda?
+</p></section>
 
+
+
+<a href="game.html" class="playBtn">
+  PLAY
+</a>
+
+<div class="quickInfo">
+  <div class="highestRow">
+    <span></span>
+    <strong id="highScore">ó</strong>
+    <span id="highScoreWord">ó</span>
+    <span id="highScoreDate">ó</span>
+  </div>
 </div>
 
-<div id="letters"
-class="lettersGrid">
 
+</div></section>
+
+
+
+
+
+<footer><div class="footerTitle">
+  ANAGRAM PANDA
 </div>
 
-<div class="buttons">
+<a href="privacy.html">
+  Privacy Policy
+</a>
 
-<button onclick="deleteLetter()">
-DELETE
-</button>
+<div class="footerLinks"><a
+href="https://instagram.com/anagrampanda"
+target="_blank"
+rel="noopener noreferrer">
+ig @anagrampanda
+</a>
 
-<button onclick="shuffleLetters()">
-SHUFFLE
-</button>
 
-<button onclick="clearWord()">
-CLEAR
-</button>
+  <a href="mailto:anagrampanda@gmail.com">
+    anagrampanda@gmail.com
+  </a></div></footer><script>
 
-</div>
+/*
+  MIGRATION FROM OLD SCORING SYSTEM
 
-<button
-class="submitBtn"
-onclick="submitWord()">
+  The old 5000-point score was cumulative.
+  The new High Score is based on ONE SINGLE WORD.
 
-SUBMIT
+  This flag makes sure the old score is deleted only once.
+*/
 
-</button>
+if(
+  localStorage.getItem("highScoreMigration") !== "done"
+){
 
-<div id="message"
-class="message">
-</div>
+  localStorage.removeItem("highScore");
+  localStorage.removeItem("highScoreWord");
+  localStorage.removeItem("highScoreDate");
 
-<button class="restartBtn" onclick="restartGame()">
+  localStorage.setItem(
+    "highScoreMigration",
+    "done"
+  );
 
-RESTART
+}
 
-</button>
 
-</div>
+/* ========================= */
+/* NEW HIGH SCORE */
+/* ========================= */
 
-<script src="script.js"></script>
+const highScore =
+  localStorage.getItem("highScore") || "ó";
 
-</body>
-</html>
+const highScoreWord =
+  localStorage.getItem("highScoreWord") || "ó";
+
+const highScoreDate =
+  localStorage.getItem("highScoreDate") || "ó";
+
+
+document.getElementById("highScore").textContent =
+  highScore;
+
+document.getElementById("highScoreWord").textContent =
+  highScoreWord;
+
+document.getElementById("highScoreDate").textContent =
+  highScoreDate;
+
+</script></main></body></html>

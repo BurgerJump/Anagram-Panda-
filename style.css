@@ -9,10 +9,8 @@ body{
   30deg,
   #ffb36b,
   #ff7f7f);
-
-
-
   
+font-family: "Arial Rounded MT Bold", sans-serif;
 
 
   display:flex;
@@ -36,15 +34,14 @@ body{
 
   background:
   linear-gradient(
-    170deg,
+    180deg,
     #f0a07a,
     #d97d7d
   );
 
   border-radius:10px;
 
-  padding:8px;
-
+padding:8px 8px 8px;
   box-sizing:border-box;
 
   text-align:center;
@@ -60,9 +57,22 @@ body{
   overflow:hidden;
 }
 
+.gameLogo{
+  display:block;
+  width:100%;
+  margin:0;
+}
+
+.gameLogo img{
+  display:block;
+  width:100%;
+  max-width:none;
+  height:auto;
+}
+
 /* ========================= */
 /* TITLE */
-/* ============ */
+/* ========================= */
 
 h1,
 h2{
@@ -71,7 +81,7 @@ h2{
 
   font-size:34px;
 
-  color:#fff7f7;
+  color:#ffffff;
 
   letter-spacing:1px;
 
@@ -81,7 +91,7 @@ h2{
 
 /* ========================= */
 /* TOP BAR */
-/* ============ */
+/* ========================= */
 
 .topBar{
 
@@ -290,7 +300,7 @@ linear-gradient(
 
   line-height:1.15;
 
-  margin-bottom:20px;
+  margin-bottom:40px;
 
   color:#ffffff;
 
