@@ -255,6 +255,13 @@ rgba(0,0,0,0.20);
   text-align:center;
 }
 
+.quickInfo img{
+  display:block;
+  width:calc(100% - 0px);
+  height:auto;
+  margin:19px 0px 0px;
+}
+
 .highestRow{
   display:flex;
   align-items:center;
@@ -275,7 +282,7 @@ rgba(0,0,0,0.20);
 }
 
 .highestRow strong{
-  font-size:20px;
+  font-size:17px;
 }
 
 #highScoreWord{
@@ -283,7 +290,7 @@ rgba(0,0,0,0.20);
 }
 
 #highScoreDate{
-  font-size:12px;
+  font-size:17px;
   opacity:0.85;
 }
 

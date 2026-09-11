@@ -111,10 +111,8 @@ const date =
 today.toLocaleDateString(
 "en-GB",
 {
-	
 month:"long",	
 day:"2-digit",
-
 year:"numeric"
 }
 );
