@@ -1,3 +1,12 @@
+html{
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+*{
+  box-sizing:border-box;
+}
+
 body{
 
   margin:0;
@@ -6,12 +15,12 @@ body{
 
   background:
   linear-gradient(
-  30deg,
-  #ffb36b,
-  #ff7f7f);
-  
-font-family: "Arial Rounded MT Bold", sans-serif;
+    30deg,
+    #ffb36b,
+    #ff7f7f
+  );
 
+  font-family:"Arial Rounded MT Bold",sans-serif;
 
   display:flex;
 
@@ -20,7 +29,13 @@ font-family: "Arial Rounded MT Bold", sans-serif;
   align-items:center;
 
   height:100vh;
+  height:100dvh;
 }
+
+
+/* ========================= */
+/* GAME */
+/* ========================= */
 
 .game{
 
@@ -31,6 +46,7 @@ font-family: "Arial Rounded MT Bold", sans-serif;
   max-width:430px;
 
   height:100vh;
+  height:100dvh;
 
   background:
   linear-gradient(
@@ -41,8 +57,7 @@ font-family: "Arial Rounded MT Bold", sans-serif;
 
   border-radius:10px;
 
-padding:8px 8px 8px;
-  box-sizing:border-box;
+  padding:8px 8px 8px;
 
   text-align:center;
 
@@ -57,18 +72,33 @@ padding:8px 8px 8px;
   overflow:hidden;
 }
 
+
+/* ========================= */
+/* LOGO */
+/* ========================= */
+
 .gameLogo{
+
   display:block;
+
   width:100%;
+
   margin:0;
+
+  flex-shrink:0;
 }
 
 .gameLogo img{
+
   display:block;
+
   width:100%;
+
   max-width:none;
+
   height:auto;
 }
+
 
 /* ========================= */
 /* TITLE */
@@ -89,6 +119,7 @@ h2{
     0 12px 15px rgba(0,0,0,0.35);
 }
 
+
 /* ========================= */
 /* TOP BAR */
 /* ========================= */
@@ -98,6 +129,8 @@ h2{
   display:flex;
 
   gap:6px;
+
+  flex-shrink:0;
 }
 
 .timer,
@@ -121,6 +154,7 @@ h2{
     0 1px 4px rgba(0,0,0,0.35);
 }
 
+
 /* ========================= */
 /* WORD SLOTS */
 /* ========================= */
@@ -136,6 +170,8 @@ h2{
   flex-wrap:wrap;
 
   min-height:42px;
+
+  flex-shrink:0;
 }
 
 .slot{
@@ -164,6 +200,7 @@ h2{
     0 2px 4px rgba(0,0,0,0.45);
 }
 
+
 /* ========================= */
 /* LETTER GRID */
 /* ========================= */
@@ -178,6 +215,8 @@ h2{
   gap:6px;
 
   width:100%;
+
+  flex-shrink:0;
 }
 
 .letterBtn{
@@ -209,6 +248,9 @@ h2{
   justify-content:center;
 
   align-items:center;
+
+  -webkit-text-size-adjust:none;
+  text-size-adjust:none;
 }
 
 .letterBtn:disabled{
@@ -221,6 +263,7 @@ h2{
   transform:scale(0.97);
 }
 
+
 /* ========================= */
 /* BUTTONS */
 /* ========================= */
@@ -230,14 +273,14 @@ h2{
   display:flex;
 
   gap:8px;
+
+  flex-shrink:0;
 }
 
 .buttons button{
 
   flex:1;
 }
-
-/* SHUFFLE MÁS ANCHO */
 
 .buttons button:nth-child(2){
 
@@ -262,6 +305,9 @@ button{
 
   text-shadow:
     0 1px 3px rgba(0,0,0,0.35);
+
+  -webkit-text-size-adjust:none;
+  text-size-adjust:none;
 }
 
 .submitBtn{
@@ -269,18 +315,23 @@ button{
   background:#006d6f;
 
   width:100%;
+
+  flex-shrink:0;
 }
+
 
 /* ========================= */
 /* MESSAGE */
 /* ========================= */
+
 .message{
 
   background:
-linear-gradient(
-  30deg,
-  #ffb36b,
-  #ff7f7f);
+  linear-gradient(
+    30deg,
+    #ffb36b,
+    #ff7f7f
+  );
 
   border-radius:14px;
 
@@ -311,13 +362,22 @@ linear-gradient(
 
   flex-direction:column;
 
-  justify-content:top;
+  justify-content:flex-start;
 
   text-align:center;
 
+  flex-shrink:1;
+
   box-sizing:border-box;
+
+  -webkit-text-size-adjust:none;
+  text-size-adjust:none;
 }
 
+
+/* ========================= */
+/* RESTART */
+/* ========================= */
 
 .restartBtn{
 
@@ -329,13 +389,11 @@ linear-gradient(
 
   transform:translateX(-50%);
 
-  width:calc(95% - 16px);
+  width:95%;
 
   max-width:414px;
 
   height:44px;
-  
-width:95%;
 
   border:none;
 
@@ -347,7 +405,6 @@ width:95%;
     #6ca8aa,
     #6ca8ff
   );
-  
 
   color:#ffffff;
 
@@ -356,24 +413,180 @@ width:95%;
   font-size:24px;
 
   z-index:99999;
+
+  -webkit-text-size-adjust:none;
+  text-size-adjust:none;
 }
 
 
-  html{
+/* ================================================= */
+/* PANTALLAS CON POCA ALTURA                         */
+/* ================================================= */
 
-  -webkit-text-size-adjust:100%;
+@media (max-height:750px){
 
-  text-size-adjust:100%;
+  .game{
+
+    gap:8px;
+
+    padding-top:6px;
+    padding-bottom:6px;
   }
-html,
-body,
-button,
-div,
-span,
-h1,
-h2{
 
-  -webkit-text-size-adjust:none;
+  .topBar{
 
-  text-size-adjust:none;
+    gap:5px;
   }
+
+  .timer,
+  .score{
+
+    padding:4px;
+
+    font-size:21px;
+  }
+
+  .wordSlots{
+
+    min-height:36px;
+
+    gap:3px;
+  }
+
+  .slot{
+
+    width:32px;
+
+    height:34px;
+
+    font-size:21px;
+  }
+
+  .lettersGrid{
+
+    gap:5px;
+  }
+
+  .letterBtn{
+
+    height:75px;
+
+    font-size:32px;
+
+    border-radius:14px;
+  }
+
+  .buttons{
+
+    gap:6px;
+  }
+
+  button{
+
+    padding:7px;
+
+    font-size:21px;
+
+    border-radius:12px;
+  }
+
+  .message{
+
+    height:72px;
+
+    min-height:72px;
+
+    max-height:72px;
+
+    margin-bottom:34px;
+
+    padding:6px;
+
+    font-size:17px;
+
+    border-radius:12px;
+  }
+
+  .restartBtn{
+
+    height:40px;
+
+    font-size:21px;
+
+    bottom:6px;
+  }
+}
+
+
+/* ================================================= */
+/* PANTALLAS MUY BAJAS                               */
+/* ================================================= */
+
+@media (max-height:650px){
+
+  .game{
+
+    gap:6px;
+
+    padding-top:4px;
+    padding-bottom:4px;
+  }
+
+  .letterBtn{
+
+    height:64px;
+
+    font-size:29px;
+  }
+
+  .timer,
+  .score{
+
+    font-size:19px;
+
+    padding:3px;
+  }
+
+  .wordSlots{
+
+    min-height:32px;
+  }
+
+  .slot{
+
+    width:29px;
+
+    height:30px;
+
+    font-size:19px;
+  }
+
+  button{
+
+    font-size:19px;
+
+    padding:6px;
+  }
+
+  .message{
+
+    height:58px;
+
+    min-height:58px;
+
+    max-height:58px;
+
+    margin-bottom:32px;
+
+    font-size:15px;
+
+    padding:5px;
+  }
+
+  .restartBtn{
+
+    height:38px;
+
+    font-size:19px;
+  }
+}
