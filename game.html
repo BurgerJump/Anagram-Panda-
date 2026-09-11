@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+  
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QW52EWJVKH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QW52EWJVKH');
+</script>
+
+  <title>Anagram Panda</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+<link rel="manifest" href="/manifest.json">
+
+<meta name="theme-color" content="#ff6a00">
+
+</head>
+
+<body>
+
+<div class="game">
+
+<a href="index.html" class="gameLogo">
+  <img src="logo.png" alt="Anagram Panda">
+</a>
+
+
+
+<div class="topBar">
+
+<div class="timer">
+⏳️
+<span id="time">
+90
+</span>
+</div>
+
+<div class="score">
+⭐️
+<span id="score">
+0
+</span>
+</div>
+
+</div>
+
+<div id="wordSlots"
+class="wordSlots">
+
+</div>
+
+<div id="letters"
+class="lettersGrid">
+
+</div>
+
+<div class="buttons">
+
+<button onclick="deleteLetter()">
+⬅️
+</button>
+
+<button onclick="shuffleLetters()">
+🔄
+</button>
+
+<button onclick="clearWord()">
+❌️
+</button>
+
+</div>
+
+<button
+class="submitBtn"
+onclick="submitWord()">
+
+SUBMIT
+
+</button>
+
+<div id="message"
+class="message">
+</div>
+
+<button class="restartBtn" onclick="restartGame()">
+
+RESTART
+
+</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

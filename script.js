@@ -1,39 +1,39 @@
-/* ========================= */
-/* LETTERS */
-/* ========================= */
+/* ========================= /
+/ LETTERS /
+/ ========================= */
 
 const englishLetters = [
-  "E","E","E","E","E","E","E",
-  "T","T","T","T","T",
-  "A","A","A","A","A",
-  "O","O","O","O",
-  "I","I","I","I",
-  "N","N","N","N",
-  "S","S","S",
-  "H","H","H",
-  "R","R","R",
-  "D","D",
-  "L","L",
-  "U","U",
-  "C","C",
-  "M","M",
-  "W","W",
-  "F","F",
-  "G","G",
-  "Y","Y",
-  "P","P",
-  "B",
-  "V",
-  "K",
-  "J",
-  "X",
-  "Q",
-  "Z"
+"E","E","E","E","E","E","E",
+"T","T","T","T","T",
+"A","A","A","A","A",
+"O","O","O","O",
+"I","I","I","I",
+"N","N","N","N",
+"S","S","S",
+"H","H","H",
+"R","R","R",
+"D","D",
+"L","L",
+"U","U",
+"C","C",
+"M","M",
+"W","W",
+"F","F",
+"G","G",
+"Y","Y",
+"P","P",
+"B",
+"V",
+"K",
+"J",
+"X",
+"Q",
+"Z"
 ];
 
-/* ========================= */
-/* ELEMENTS */
-/* ========================= */
+/* ========================= /
+/ ELEMENTS /
+/ ========================= */
 
 const lettersDiv =
 document.getElementById("letters");
@@ -50,9 +50,9 @@ document.getElementById("time");
 const message =
 document.getElementById("message");
 
-/* ========================= */
-/* STATE */
-/* ========================= */
+/* ========================= /
+/ STATE /
+/ ========================= */
 
 let currentLetters = [];
 
@@ -66,9 +66,9 @@ let timer = null;
 
 let gameOver = false;
 
-/* ========================= */
-/* DICTIONARY */
-/* ========================= */
+/* ========================= /
+/ DICTIONARY /
+/ ========================= */
 
 let dictionary = [];
 
@@ -76,358 +76,432 @@ fetch("words.txt")
 .then(r => r.text())
 .then(text => {
 
-  dictionary = text
-  .split("\n")
-  .map(w => w.trim().toUpperCase());
+dictionary = text
+.split("\n")
+.map(w =>
+w.trim().toUpperCase()
+);
 
 });
 
-/* ========================= */
-/* GENERATE LETTERS */
-/* ========================= */
+/* ========================= /
+/ SAVE HIGH SCORE /
+/ ========================= */
+
+function saveHighScore(word, points){
+
+const oldHighScore =
+Number(
+localStorage.getItem("highScore") || 0
+);
+
+/*
+High Score is for ONE SINGLE WORD.
+Never add scores together.
+*/
+
+if(points <= oldHighScore){
+return;
+}
+
+const today =
+new Date();
+
+const date =
+today.toLocaleDateString(
+"en-GB",
+{
+	
+month:"long",	
+day:"2-digit",
+
+year:"numeric"
+}
+);
+
+localStorage.setItem(
+"highScore",
+points
+);
+
+localStorage.setItem(
+"highScoreWord",
+word
+);
+
+localStorage.setItem(
+"highScoreDate",
+date
+);
+
+}
+
+/* ========================= /
+/ GENERATE LETTERS /
+/ ========================= */
 
 function generateLetters(){
 
-  currentLetters = [];
+currentLetters = [];
 
-  const vowels = [
-    "A","E","I","O","U"
-  ];
+const vowels =
+["A","E","I","O","U"];
 
-  currentLetters.push(
+currentLetters.push(
+vowels[
+Math.floor(
+Math.random() *
+vowels.length
+)
+]
+);
 
-    vowels[
-      Math.floor(
-        Math.random() *
-        vowels.length
-      )
-    ]
-  );
+for(let i = 1; i < 9; i++){
 
-  for(let i=1;i<9;i++){
+currentLetters.push(
+  englishLetters[
+    Math.floor(
+      Math.random() *
+      englishLetters.length
+    )
+  ]
+);
 
-    currentLetters.push(
-
-      englishLetters[
-        Math.floor(
-          Math.random() *
-          englishLetters.length
-        )
-      ]
-    );
-  }
-
-  shuffleArray(currentLetters);
-
-  renderLetters();
-
-  renderSlots();
 }
 
-/* ========================= */
-/* SHUFFLE */
-/* ========================= */
+shuffleArray(currentLetters);
+
+renderLetters();
+
+renderSlots();
+
+}
+
+/* ========================= /
+/ SHUFFLE ARRAY /
+/ ========================= */
 
 function shuffleArray(arr){
 
-  for(
+for(
+let i = arr.length - 1;
+i > 0;
+i--
+){
 
-    let i = arr.length - 1;
-    i > 0;
-    i--
+const j =
+  Math.floor(
+    Math.random() * (i + 1)
+  );
 
-  ){
+[arr[i], arr[j]] =
+[arr[j], arr[i]];
 
-    const j = Math.floor(
-      Math.random() * (i + 1)
-    );
-
-    [arr[i], arr[j]] =
-    [arr[j], arr[i]];
-  }
 }
 
-/* ========================= */
-/* CLEAR WORD */
-/* ========================= */
-
-function clearWord() {
-
-  if (gameOver) return;
-
-  currentWord = "";
-
-  const btns =
-    document.querySelectorAll(".letterBtn");
-
-  btns.forEach(btn => {
-
-    btn.disabled = false;
-
-    btn.style.opacity = 1;
-  });
-
-  renderSlots();
 }
 
-/* ========================= */
-/* RENDER LETTERS */
-/* ========================= */
+/* ========================= /
+/ CLEAR WORD /
+/ ========================= */
+
+function clearWord(){
+
+if(gameOver)
+return;
+
+currentWord = "";
+
+const btns =
+document.querySelectorAll(
+".letterBtn"
+);
+
+btns.forEach(btn => {
+
+btn.disabled = false;
+
+btn.style.opacity = 1;
+
+});
+
+renderSlots();
+
+}
+
+/* ========================= /
+/ RENDER LETTERS /
+/ ========================= */
 
 function renderLetters(){
 
-  lettersDiv.innerHTML = "";
+lettersDiv.innerHTML = "";
 
-  currentLetters.forEach(
-    (letter,index)=>{
+currentLetters.forEach(
+(letter,index) => {
 
-      const btn =
-      document.createElement("button");
+  const btn =
+    document.createElement(
+      "button"
+    );
 
-      btn.className =
-      "letterBtn";
+  btn.className =
+    "letterBtn";
 
-      btn.innerText =
-      letter;
+  btn.innerText =
+    letter;
 
-      btn.onclick =
-      ()=>selectLetter(index);
+  btn.onclick =
+    () => selectLetter(index);
 
-      lettersDiv.appendChild(btn);
-    }
-  );
+  lettersDiv.appendChild(btn);
+
 }
 
-/* ========================= */
-/* RENDER SLOTS */
-/* ========================= */
+);
+
+}
+
+/* ========================= /
+/ RENDER SLOTS /
+/ ========================= */
 
 function renderSlots(){
 
-  wordSlots.innerHTML = "";
+wordSlots.innerHTML = "";
 
-  for(let i=0;i<9;i++){
+for(let i = 0; i < 9; i++){
 
-    const slot =
-    document.createElement("div");
+const slot =
+  document.createElement(
+    "div"
+  );
 
-    slot.className =
-    "slot";
+slot.className =
+  "slot";
 
-    slot.innerText =
-    currentWord[i] || "";
+slot.innerText =
+  currentWord[i] || "";
 
-    wordSlots.appendChild(slot);
-  }
+wordSlots.appendChild(slot);
+
 }
 
-/* ========================= */
-/* SELECT LETTER */
-/* ========================= */
+}
+
+/* ========================= /
+/ SELECT LETTER /
+/ ========================= */
 
 function selectLetter(index){
 
-  if(gameOver) return;
+if(gameOver)
+return;
 
-  const btns =
-  document.querySelectorAll(".letterBtn");
+const btns =
+document.querySelectorAll(
+".letterBtn"
+);
 
-  const btn =
-  btns[index];
+const btn =
+btns[index];
 
-  if(btn.disabled) return;
+if(btn.disabled)
+return;
 
-  currentWord +=
-  currentLetters[index];
+currentWord +=
+currentLetters[index];
 
-  btn.disabled = true;
+btn.disabled = true;
 
-  btn.style.opacity = 0.3;
+btn.style.opacity = 0.3;
 
-  renderSlots();
+renderSlots();
+
 }
 
-/* ========================= */
-/* DELETE LETTER */
-/* ========================= */
+/* ========================= /
+/ DELETE LETTER /
+/ ========================= */
 
 function deleteLetter(){
 
-  if(gameOver) return;
+if(gameOver)
+return;
 
-  if(currentWord.length === 0)
-  return;
+if(currentWord.length === 0)
+return;
 
-  const last =
-  currentWord[
-    currentWord.length - 1
-  ];
+const last =
+currentWord[
+currentWord.length - 1
+];
 
-  currentWord =
-  currentWord.slice(0,-1);
+currentWord =
+currentWord.slice(0,-1);
 
-  const btns =
-  document.querySelectorAll(".letterBtn");
+const btns =
+document.querySelectorAll(
+".letterBtn"
+);
 
-  for(
+for(
+let i = btns.length - 1;
+i >= 0;
+i--
+){
 
-    let i = btns.length - 1;
-    i >= 0;
-    i--
+if(
+  currentLetters[i] === last &&
+  btns[i].disabled
+){
 
-  ){
+  btns[i].disabled = false;
 
-    if(
+  btns[i].style.opacity = 1;
 
-      currentLetters[i] === last &&
-      btns[i].disabled
+  break;
 
-    ){
-
-      btns[i].disabled = false;
-
-      btns[i].style.opacity = 1;
-
-      break;
-    }
-  }
-
-  renderSlots();
 }
 
-/* ========================= */
-/* SHUFFLE BUTTON */
-/* ========================= */
+}
+
+renderSlots();
+
+}
+
+/* ========================= /
+/ SHUFFLE BUTTON /
+/ ========================= */
 
 function shuffleLetters(){
 
-  if(gameOver) return;
+if(gameOver)
+return;
 
-  shuffleArray(currentLetters);
+shuffleArray(currentLetters);
 
-  renderLetters();
+renderLetters();
+
 }
 
-/* ========================= */
-/* CAN BUILD */
-/* ========================= */
+/* ========================= /
+/ CAN BUILD WORD /
+/ ========================= */
 
 function canBuildWord(word){
 
-  let temp = [...currentLetters];
+let temp =
+[...currentLetters];
 
-  for(let letter of word){
+for(let letter of word){
 
-    const idx =
-    temp.indexOf(letter);
+const idx =
+  temp.indexOf(letter);
 
-    if(idx === -1)
-    return false;
+if(idx === -1)
+  return false;
 
-    temp.splice(idx,1);
-  }
+temp.splice(idx,1);
 
-  return true;
 }
 
-/* ========================= */
-/* VALID WORD */
-/* ========================= */
+return true;
+
+}
+
+/* ========================= /
+/ VALID WORD /
+/ ========================= */
 
 function isValidWord(word){
 
-  return dictionary.includes(word);
+return dictionary.includes(word);
+
 }
 
-/* ========================= */
-/* FIND BEST WORD */
-/* ========================= */
+/* ========================= /
+/ FIND BEST WORD /
+/ ========================= */
 
 function findBestWord(){
 
-  let best = "";
+let best = "";
 
-  dictionary.forEach(word=>{
+dictionary.forEach(word => {
 
-    if(
+if(
+  word.length <= 9 &&
+  canBuildWord(word) &&
+  word.length > best.length
+){
 
-      word.length <= 9 &&
-      canBuildWord(word) &&
-      word.length > best.length
+  best = word;
 
-    ){
-
-      best = word;
-    }
-  });
-
-  return best;
 }
 
-/* ========================= */
-/* GET LONGEST WORDS */
-/* ========================= */
+});
+
+return best;
+
+}
+
+/* ========================= /
+/ GET LONGEST WORDS /
+/ ========================= */
 
 function getLongestWords(bestWord){
 
-  return [
+return [
+...new Set(
+dictionary.filter(w =>
+w.length === bestWord.length &&
+w.length <= 9 &&
+canBuildWord(w)
+)
+)
+].slice(0,5);
 
-    ...new Set(
-
-      dictionary.filter(w =>
-
-        w.length === bestWord.length &&
-        w.length <= 9 &&
-        canBuildWord(w)
-
-      )
-
-    )
-
-  ].slice(0,5);
 }
 
-/* ========================= */
-/* TIMER */
-/* ========================= */
+/* ========================= /
+/ TIMER /
+/ ========================= */
 
 function startTimer(){
 
-  clearInterval(timer);
+clearInterval(timer);
 
-  timer = setInterval(
-  ()=>{
+timer =
+setInterval(
+() => {
 
     time--;
 
     if(time < 0)
-    time = 0;
+      time = 0;
 
     timeText.innerText =
-    time;
+      time;
 
     if(time <= 0){
 
       clearInterval(timer);
 
       const bestWord =
-      findBestWord();
+        findBestWord();
 
       const longestWords =
-      getLongestWords(bestWord);
+        getLongestWords(
+          bestWord
+        );
 
       message.innerHTML =
-
-        "⌛️ LONGEST WORD (" +
-
+        "🏆 LONGEST WORD (" +
         bestWord.length +
-
-        ")" +
-
+        ")<br>" +
         "<span style='color:#00ff99'>" +
-
         longestWords.join(" • ") +
-
         "</span>";
 
       currentWord = "";
@@ -435,186 +509,223 @@ function startTimer(){
       renderSlots();
 
       gameOver = true;
+
     }
 
-  },1000);
+  },
+  1000
+);
+
 }
 
-/* ========================= */
-/* SUBMIT */
-/* ========================= */
+/* ========================= /
+/ SUBMIT /
+/ ========================= */
 
 function submitWord(){
 
-  if(gameOver) return;
+if(gameOver)
+return;
 
-  clearInterval(timer);
+clearInterval(timer);
 
-  const word =
-  currentWord.toUpperCase();
+const word =
+currentWord.toUpperCase();
 
-  if(word.length < 3){
+/* MINIMUM LENGTH */
 
-    message.innerHTML =
-    "❌ MIN 3 LETTERS";
+if(word.length < 3){
 
-    startTimer();
+message.innerHTML =
+  "❌ MIN 3 LETTERS";
 
-    return;
-  }
+startTimer();
 
-  if(!canBuildWord(word)){
+return;
 
-    message.innerHTML =
-    "❌ INVALID LETTERS";
-
-    startTimer();
-
-    return;
-  }
-
-  if(!isValidWord(word)){
-
-    message.innerHTML =
-    "❌ INVALID";
-
-    startTimer();
-
-    return;
-  }
-
-  const bestWord =
-  findBestWord();
-
-  const longestWords =
-  getLongestWords(bestWord);
-
-  let letterPoints =
-  word.length * 10;
-
-  let timeBonus =
-  Math.floor(time / 10) - 4;
-
-  if(timeBonus < 0){
-
-    timeBonus = 0;
-  }
-
-  let longWordBonus = 0;
-
-  let allLettersBonus = 0;
-
-  if(word.length === 9){
-
-    allLettersBonus = 400;
-  }
-
-  if(
-    word.length ===
-    bestWord.length
-  ){
-
-    longWordBonus = 100;
-  }
-
-  let points =
-
-    letterPoints +
-    timeBonus +
-    longWordBonus +
-    allLettersBonus;
-
-  score += points;
-
-  scoreText.innerText =
-  score;
-
-  message.innerHTML =
-
-    "<span style='color:#ffe600;font-size:26px'>" +
-
-    word +
-
-    "</span>" +
-    "✅ " +
-    letterPoints
-    ;
-
-  if(timeBonus > 0){
-
-    message.innerHTML +=
-
-      "  ⏳ BONUS +" +
-
-      timeBonus;
-  }
-
-  if(longWordBonus > 0){
-
-    message.innerHTML +=
-
-      "<br>LONGEST BONUS +100";
-  }
-
-  if(allLettersBonus > 0){
-
-    message.innerHTML +=
-
-      "🐼 9 LETTERS +400";
-  }
-
-  message.innerHTML +=
-
-    "  TOTAL: " +
-
-    points +
-    
-    "<span style='color:#00dd99'>" +
-    "LONGEST (" +
-
-    bestWord.length +
-
-    ") " +
-
-   "</span>"+
-
-    longestWords.join(" • ") 
-
- ;
-
-  currentWord = "";
-
-  renderSlots();
-
-  gameOver = true;
 }
 
-/* ========================= */
-/* RESTART */
-/* ========================= */
+/* CAN BUILD */
+
+if(!canBuildWord(word)){
+
+message.innerHTML =
+  "❌ INVALID WORD";
+
+startTimer();
+
+return;
+
+}
+
+/* DICTIONARY */
+
+if(!isValidWord(word)){
+
+message.innerHTML =
+  "❌ INVALID";
+
+startTimer();
+
+return;
+
+}
+
+/* ========================= /
+/ FIND LONGEST /
+/ ========================= */
+
+const bestWord =
+findBestWord();
+
+const longestWords =
+getLongestWords(
+bestWord
+);
+
+/* ========================= /
+/ CALCULATE SCORE /
+/ ========================= */
+
+let letterPoints =
+word.length * 10;
+
+let timeBonus =
+Math.floor(time / 10) - 4;
+
+if(timeBonus < 0){
+timeBonus = 0;
+}
+
+let longWordBonus = 0;
+
+let allLettersBonus = 0;
+
+if(word.length === 9){
+
+allLettersBonus = 100;
+
+}
+
+if(
+word.length ===
+bestWord.length
+){
+
+longWordBonus = 100;
+
+}
+
+const points =
+letterPoints +
+timeBonus +
+longWordBonus +
+allLettersBonus;
+
+/* ========================= /
+/ NEW SCORE = THIS WORD ONLY /
+/ ========================= */
+
+score = points;
+
+scoreText.innerText =
+score;
+
+/* ========================= /
+/ SAVE RECORD /
+/ ========================= */
+
+saveHighScore(
+word,
+points
+);
+
+/* ========================= /
+/ MESSAGE /
+/ ========================= */
+
+message.innerHTML =
+"<span style='color:#ffe600;font-size:26px'>" +
+word +
+"</span>" +
+" ✅ " +
+letterPoints;
+
+if(timeBonus > 0){
+
+message.innerHTML +=
+  " ⏳ BONUS +" +
+  timeBonus;
+
+}
+
+if(longWordBonus > 0){
+
+message.innerHTML +=
+  "<br>👑 LONGEST BONUS +100";
+
+}
+
+if(allLettersBonus > 0){
+
+message.innerHTML +=
+  " 🔥 9 LETTERS +100";
+
+}
+
+message.innerHTML +=
+" ⭐️ " +
+points +
+"<br>" +
+"<span style='color:#00dd99'>" +
+"LONGEST (" +
+bestWord.length +
+") " +
+"</span>" +
+longestWords.join(" • ");
+
+currentWord = "";
+
+renderSlots();
+
+gameOver = true;
+
+}
+
+/* ========================= /
+/ RESTART /
+/ ========================= */
 
 function restartGame(){
 
-  clearInterval(timer);
+clearInterval(timer);
 
-  currentWord = "";
+currentWord = "";
 
-  time = 90;
+score = 0;
 
-  timeText.innerText = time;
+scoreText.innerText =
+0;
 
-  gameOver = false;
+time = 90;
 
-  message.innerHTML = "";
+timeText.innerText =
+time;
 
-  generateLetters();
+gameOver = false;
 
-  startTimer();
+message.innerHTML =
+"";
+
+generateLetters();
+
+startTimer();
+
 }
 
-/* ========================= */
-/* START */
-/* ========================= */
+/* ========================= /
+/ START /
+/ ========================= */
 
 generateLetters();
 
