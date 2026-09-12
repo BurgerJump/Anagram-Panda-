@@ -4,25 +4,28 @@
 <head>
 
 <meta charset="UTF-8">
-  
+
 <meta
 name="viewport"
 content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-  
-  <!-- Google tag (gtag.js) -->
+
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QW52EWJVKH"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
+  function gtag(){
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
   gtag('config', 'G-QW52EWJVKH');
 </script>
 
-  <title>Anagram Panda</title>
+<title>Anagram Panda</title>
 
-<link rel="stylesheet"
-href="style.css">
+<link rel="stylesheet" href="style.css">
 
 <link rel="manifest" href="/manifest.json">
 
@@ -30,81 +33,152 @@ href="style.css">
 
 </head>
 
+
 <body>
 
 <div class="game">
 
+
 <a href="index.html" class="gameLogo">
-  <img src="logo.png" alt="Anagram Panda">
+
+  <img
+  src="logo.png"
+  alt="Anagram Panda">
+
 </a>
 
 
 
 <div class="topBar">
 
-<div class="timer">
-⏳️
-<span id="time">
-90
-</span>
+
+  <!-- TIMER -->
+
+  <div class="timer">
+
+    ⏳️
+
+    <span id="time">
+      90
+    </span>
+
+  </div>
+
+
+  <!-- HIGH SCORE -->
+
+  <div class="score">
+
+    🏆
+
+    <span id="highScore">
+      —
+    </span>
+
+  </div>
+
+
+  <!-- HOME -->
+
+  <a
+  href="index.html"
+  class="homeBtn"
+  aria-label="Home">
+
+    🏠
+
+  </a>
+
+
 </div>
 
-<div class="score">
-⭐️
-<span id="score">
-0
-</span>
-</div>
 
-</div>
 
-<div id="wordSlots"
+<div
+id="wordSlots"
 class="wordSlots">
-
 </div>
 
-<div id="letters"
+
+
+<div
+id="letters"
 class="lettersGrid">
-
 </div>
+
+
 
 <div class="buttons">
 
-<button onclick="deleteLetter()">
-⬅️
-</button>
 
-<button onclick="shuffleLetters()">
-🔄
-</button>
+  <button onclick="deleteLetter()">
+    ⬅️
+  </button>
 
-<button onclick="clearWord()">
-❌️
-</button>
+
+  <button onclick="shuffleLetters()">
+    🔄
+  </button>
+
+
+  <button onclick="clearWord()">
+    ❌️
+  </button>
+
 
 </div>
+
+
 
 <button
 class="submitBtn"
 onclick="submitWord()">
 
-SUBMIT
+  SUBMIT
 
 </button>
 
-<div id="message"
+
+
+<div
+id="message"
 class="message">
 </div>
 
-<button class="restartBtn" onclick="restartGame()">
 
-RESTART
+
+<button
+class="restartBtn"
+onclick="restartGame()">
+
+  RESTART
 
 </button>
 
+
 </div>
+
+
+
+<script>
+
+/* ========================= */
+/* HIGH SCORE */
+/* ========================= */
+
+const savedHighScore =
+  localStorage.getItem("highScore");
+
+document.getElementById("highScore").textContent =
+  savedHighScore || "—";
+
+</script>
+
 
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
+

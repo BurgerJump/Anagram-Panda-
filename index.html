@@ -1,8 +1,18 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
 name="viewport"
 content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 
-<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-QW52EWJVKH"></script><script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QW52EWJVKH"></script>
+
+<script>
 window.dataLayer = window.dataLayer || [];
 
 function gtag(){
@@ -11,76 +21,229 @@ function gtag(){
 
 gtag('js', new Date());
 gtag('config', 'G-QW52EWJVKH');
-</script><title>Anagram Panda</title><meta
+</script>
+
+<title>Anagram Panda</title>
+
+<meta
 name="description"
 content="Anagram Panda is a fast 9-letter word puzzle game. Find the best words you can before the 90-second timer runs out.">
 
+<link rel="stylesheet" href="home.css">
+
+<link rel="manifest" href="/manifest.json">
+
+<meta name="theme-color" content="#ff7f7f">
+
+</head>
 
 
+<body>
 
-<link rel="stylesheet" href="home.css"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#ff7f7f"></head>
+<main class="home">
 
-<body><main class="home"><section class="hero">
+<section class="hero">
+
 
 <div class="titleArea">
 
 <a href="game.html" class="gameLogo">
-  <img src="logo.png" alt="Anagram Panda">
+
+  <img
+  src="logo.png"
+  alt="Anagram Panda">
+
 </a>
 
 </div>
 
-<section class="about"><p>
-  You get 9 random letters to find the longest word possible.</p><p>
-  Tap the letters and press SUBMIT to score!</p><p> Longer words are worth more points.
-</p><p>
-  Can you beat the panda?
-</p></section>
+
+<section class="about">
+
+<p>
+You get 9 random letters to find the longest word possible.
+</p>
+
+<p>
+Tap the letters and press SUBMIT to score!
+</p>
+
+<p>
+Longer words are worth more points.
+</p>
+
+<p>
+Can you beat the panda?
+</p>
+
+</section>
 
 
+<a
+href="game.html"
+class="playBtn">
 
-<a href="game.html" class="playBtn">
-  PLAY
+PLAY
+
 </a>
+
 
 <div class="quickInfo">
-  <div class="highestRow">
-    <span> HIGHEST: </span>
-    <strong id="highScore">—</strong>
-    <span id="highScoreWord">—</span>
-    <span id="highScoreDate">—</span>
-  </div>
 
- <img src="how.png" alt="Anagram Panda">
+<div class="highestRow">
+
+<span> HIGHEST:</span>
+
+<strong id="highScore">—</strong>
+
+<span id="highScoreWord">—</span>
+
+<span id="highScoreDate">—</span>
 
 </div>
-</div></section>
 
 
+<img
+src="how.png"
+alt="How to play Anagram Panda">
 
 
-<footer><div class="footerTitle">
-  ANAGRAM PANDA
 </div>
 
-<a href="privacy.html">
-  Privacy Policy
+
+<!-- ========================= -->
+<!-- HOW TO INSTALL -->
+<!-- ========================= -->
+
+<section class="installInfo">
+
+<h2>HOW TO INSTALL</h2>
+
+<p>
+<strong>Android / Chrome:</strong><br>
+Tap the browser menu  and choose
+<strong>Add to Home screen</strong>
+or <strong>Install app</strong>.
+</p>
+
+<p>
+<strong>iPhone / Safari:</strong><br>
+Tap <strong>Share</strong> and choose
+<strong>Add to Home Screen</strong>.
+</p>
+
+<p>
+Once installed, open Anagram Panda from your home screen for the best experience.
+</p>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- MORE GAMES -->
+<!-- ========================= -->
+
+<section class="moreGames">
+
+<h2>MORE GAMES</h2>
+
+<p>
+
+<a
+href="https://burgerjump.lat">
+
+BURGER JUMP
+
 </a>
 
-<div class="footerLinks"><a
+</p>
+
+<p>
+A fast arcade jumping game.<br>
+Jump, collect food and beat your high score!
+</p>
+
+<p>
+
+<a
+href="https://burgerjump.lat">
+
+PLAY BURGER JUMP 
+
+</a>
+
+</p>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- SUPPORT -->
+<!-- ========================= -->
+
+<section class="support">
+
+<h2>SUPPORT ANAGRAM PANDA</h2>
+
+<p>
+Enjoying Anagram Panda?
+</p>
+
+<p>
+
+<a
+href="https://ko-fi.com/burgerjump"
+target="_blank"
+rel="noopener noreferrer">
+
+Support the next version 
+
+</a>
+
+</p>
+
+</section>
+
+
+</section>
+
+
+<footer>
+
+<div class="footerTitle">
+ANAGRAM PANDA
+</div>
+
+
+<a href="privacy.html">
+Privacy Policy
+</a>
+
+
+<div class="footerLinks">
+
+<a
 href="https://instagram.com/anagrampanda"
 target="_blank"
 rel="noopener noreferrer">
+
 ig @anagrampanda
+
 </a>
 
 
-  <a href="mailto:anagrampanda@gmail.com">
-    anagrampanda@gmail.com
-  </a></div>
- 
+<a href="mailto:anagrampanda@gmail.com">
 
-</footer><script>
+anagrampanda@gmail.com
+
+</a>
+
+</div>
+
+</footer>
+
+
+<script>
 
 /*
   MIGRATION FROM OLD SCORING SYSTEM
@@ -130,4 +293,11 @@ document.getElementById("highScoreWord").textContent =
 document.getElementById("highScoreDate").textContent =
   highScoreDate;
 
-</script></main></body></html>
+</script>
+
+
+</main>
+
+</body>
+
+</html>

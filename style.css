@@ -37,6 +37,8 @@ body{
 /* GAME */
 /* ========================= */
 
+
+
 .game{
 
   position:relative;
@@ -58,7 +60,8 @@ body{
   border-radius:10px;
 
   padding:8px 8px 8px;
-
+  padding-top:calc(8px + env(safe-area-inset-top));
+  
   text-align:center;
 
   color:#ffffff;
@@ -284,7 +287,7 @@ h2{
 
 .buttons button:nth-child(2){
 
-  flex:1.6;
+  flex-shrink:0;
 }
 
 button{
@@ -590,3 +593,53 @@ button{
     font-size:19px;
   }
 }
+
+/* ========================= */
+/* TOP BAR - 3 ELEMENTOS */
+/* ========================= */
+
+.topBar{
+  display:flex;
+  gap:6px;
+  width:100%;
+}
+
+.timer,
+.score,
+.homeBtn{
+  background:#ff8c66;
+  border-radius:12px;
+
+  min-height:42px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#ffffff;
+
+  font-size:24px;
+  font-weight:bold;
+
+  text-decoration:none;
+
+  text-shadow:
+    0 1px 4px rgba(0,0,0,0.35);
+
+  -webkit-text-size-adjust:none;
+  text-size-adjust:none;
+}
+
+.timer,
+.score{
+  flex:1;
+}
+
+.homeBtn{
+  width:58px;
+  flex-shrink:0;
+}
+
+
+
+
