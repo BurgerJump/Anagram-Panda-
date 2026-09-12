@@ -298,6 +298,18 @@ rgba(0,0,0,0.20);
 }
 
 /* ========================= /
+/ moreGames /
+/ ========================= */
+
+.moreGames img{
+  display:block;
+  width:100%;
+  height:auto;
+  margin:19px auto 0;
+}
+
+
+/* ========================= /
 / ABOUT /
 / ========================= */
 
@@ -318,7 +330,12 @@ rgba(255,255,255,0.10);
 text-align:center;
 
 }
-
+.about img{
+  display:block;
+  width:calc(100% - 0px);
+  height:auto;
+  margin:19px 0px 0px;
+}
 .about p{
 
 margin:
@@ -364,6 +381,14 @@ font-weight:bold;
 opacity:0.85;
 
 }
+
+.footer img{
+  display:block;
+  width:calc(100% - 0px);
+  height:auto;
+  margin:19px 0px 0px;
+}
+
 
 .footerTitle{
 
