@@ -11,7 +11,10 @@ text-size-adjust:100%;
 box-sizing:border-box;
 
 }
-
+a{
+  color:#ffffff;
+  text-decoration:none;
+}
 body{
 
 margin:0;
