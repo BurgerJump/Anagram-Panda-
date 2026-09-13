@@ -24,11 +24,11 @@ alt="Anagram Panda">
 <section class="about"><p>
 <h2>
 You get 9 random letters to find the longest word possible.
-</p><p>
+</p><p><h2>
 Tap the letters and press SUBMIT to score!
-</p><p>
+</h2>
+  <h2>
 Longer words are worth more points.
-</p>
 </h2>
 </section><a href="game.html"
 class="playBtn">
@@ -39,11 +39,11 @@ PLAY
 
 <div class="quickInfo"><div class="highestRow"><span> HIGHEST:</span>
 
-<strong id="highScore">—</strong>
+<strong id="highScore">â€”</strong>
 
-<span id="highScoreWord">—</span>
+<span id="highScoreWord">â€”</span>
 
-<span id="highScoreDate">—</span>
+<span id="highScoreDate">â€”</span>
 
 </div>
 
@@ -181,13 +181,13 @@ if(
 /* ========================= */
 
 const highScore =
-  localStorage.getItem("highScore") || "—";
+  localStorage.getItem("highScore") || "â€”";
 
 const highScoreWord =
-  localStorage.getItem("highScoreWord") || "—";
+  localStorage.getItem("highScoreWord") || "â€”";
 
 const highScoreDate =
-  localStorage.getItem("highScoreDate") || "—";
+  localStorage.getItem("highScoreDate") || "â€”";
 
 
 document.getElementById("highScore").textContent =
