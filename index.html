@@ -1,8 +1,18 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
 name="viewport"
 content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 
-<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-QW52EWJVKH"></script><script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QW52EWJVKH"></script>
+
+<script>
 window.dataLayer = window.dataLayer || [];
 
 function gtag(){
@@ -11,309 +21,496 @@ function gtag(){
 
 gtag('js', new Date());
 gtag('config', 'G-QW52EWJVKH');
-</script><title>Anagram Panda</title><meta
-name="description"
-content="Anagram Panda is a fast 9-letter word puzzle game. Find the best words you can before the 90-second timer runs out.">
+</script>
 
-<link rel="stylesheet" href="home.css"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#ff7f7f"></head><body><main class="home"><section class="hero"><div class="titleArea"><a href="game.html" class="gameLogo"><img
+<title>Anagram Panda</title>
+
+<meta
+name="description"
+content="Anagram Panda is a fast 9-letter word puzzle game. Find the best word you can before the 90-second timer runs out.">
+
+<link rel="stylesheet" href="home.css">
+
+<link rel="manifest" href="/manifest.json">
+
+<meta name="theme-color" content="#806348">
+</head>
+
+
+<body>
+
+<main class="home">
+
+
+<!-- MENU BUTTON -->
+
+<button
+class="menuBtn"
+id="menuBtn"
+aria-label="Open menu"
+aria-expanded="false">
+
+
+
+</button>
+
+
+<!-- MENU -->
+
+<nav
+class="menuPanel"
+id="menuPanel"
+aria-hidden="true">
+
+<div class="menuTitle">
+ANAGRAM PANDA
+</div>
+
+<a href="#howToPlay">
+HOW TO PLAY
+</a>
+
+<button
+type="button"
+id="shareBtn">
+SHARE GAME
+</button>
+
+<button
+type="button"
+id="audioBtn">
+AUDIO
+<span id="audioState">ON</span>
+</button>
+
+<button
+type="button"
+id="vibrationBtn">
+VIBRATION
+<span id="vibrationState">ON</span>
+</button>
+
+<a href="about.html">
+ABOUT
+</a>
+
+<a href="privacy.html">
+PRIVACY
+</a>
+
+</nav>
+
+
+<section class="hero">
+
+
+<!-- LOGO -->
+
+<div class="titleArea">
+
+<a
+href="game.html"
+class="gameLogo">
+
+<img
 src="logo.png"
 alt="Anagram Panda">
 
-</a></div>
+</a>
 
-<section class="about"><p>
-<h2>
-You get 9 random letters to find the longest word possible.
-</p><p><h2>
-Tap the letters and press SUBMIT to score!
-</h2>
-  <h2>
-Longer words are worth more points.
-</h2>
-</section><a href="game.html"
+</div>
+
+
+<!-- HOW TO PLAY -->
+
+<section
+class="howToPlay"
+id="howToPlay">
+
+<div class="sectionTitle">
+HOW TO PLAY
+</div>
+
+
+<div class="howVisual">
+
+<img
+src="background.png"
+class="howBackground"
+alt="">
+
+
+<div class="howOverlay">
+
+<div class="demoLetters">
+
+<span>P</span>
+<span>A</span>
+<span>N</span>
+
+<span>D</span>
+<span>O</span>
+<span>B</span>
+
+<span>M</span>
+<span>E</span>
+<span>T</span>
+
+</div>
+
+
+<div class="demoWord">
+PANDA
+</div>
+
+
+<div class="demoLine"></div>
+
+</div>
+
+</div>
+
+
+<div class="howHeadline">
+9 LETTERS. 90 SECONDS. ONE BEST WORD.
+</div>
+
+
+<div class="howSteps">
+Tap letters • Build a word • Submit
+</div>
+
+</section>
+
+
+<!-- PLAY -->
+
+<a
+href="game.html"
 class="playBtn">
 
 PLAY
 
 </a>
 
-<div class="quickInfo"><div class="highestRow"><span> HIGHEST:</span>
 
-<strong id="highScore">â€”</strong>
+<!-- HIGHEST -->
 
-<span id="highScoreWord">â€”</span>
+<section class="quickInfo">
 
-<span id="highScoreDate">â€”</span>
+<div class="highestTitle">
+HIGHEST
+</div>
+
+
+<div class="highestRow">
+
+<strong id="highScore">
+—
+</strong>
+
+<span id="highScoreWord">
+—
+</span>
+
+<span id="highScoreDate">
+—
+</span>
 
 </div>
 
-<img
-src="how.png"
-alt="How to play Anagram Panda">
-
-</div>
-
-<!-- ========================= -->
-<!-- INSTALL APP -->
-<!-- ========================= --><button
+</section>
 
 
-id="installBtn"
-type="button"
-style="
-display:block;
-margin:20px auto 14px;
-padding:12px 24px;
-border:none;
-border-radius:14px;
-background:#006d6f;
-color:#ffffff;
-font-size:20px;
-font-weight:bold;
-font-family:inherit;
-box-shadow:0 3px 8px rgba(0,0,0,0.20);
-cursor:pointer;
-">
+</section>
 
- INSTALL APP
 
-</button>
+<script>
 
-<!-- ========================= -->
-<!-- HOW TO INSTALL -->
-<!-- ========================= -->
-<section class="installInfo">
-<h2>HOW TO INSTALL FOR FREE</h2><p>
-<strong>Android / Chrome:</strong><br>
-Tap the browser menu  and choose
-<strong>Add to Home screen</strong>
-or <strong>Install app</strong>.
-</p><p>
-<strong>iPhone / Safari:</strong><br>
-Tap <strong>Share</strong> and choose
-<strong>Add to Home Screen</strong>.
-</p><p>
-Once installed, open Anagram Panda from your home screen for the best experience.
-</p></section>
+/* ========================= */
+/* MENU */
+/* ========================= */
 
-<!-- ========================= -->
-<!-- MORE GAMES -->
-<!-- ========================= -->
-<section class="moreGames">
-<h2>MORE FREE GAMES!</h2><p><a
-href="https://burgerjump.lat">
+const menuBtn =
+document.getElementById("menuBtn");
 
-BURGER JUMP
+const menuPanel =
+document.getElementById("menuPanel");
 
-</a></p><p>
-A fast arcade jumping game.<br>
-Jump, collect food and beat your high score!
-</p><p><a
-href="https://burgerjump.lat">
 
-<img
-src="bjad2.png"
-alt="BurgerJump">
+menuBtn.addEventListener(
+"click",
+function(){
 
-</a></p></section>
-<!-- ========================= -->
-<!-- SUPPORT -->
-<!-- ========================= -->
-<section class="support">
-<a href="https://ko-fi.com/burgerjump"
-target="_blank"
-rel="noopener noreferrer">
-<h2>SUPPORT ANAGRAM PANDA</h2>
-</a>
-<p>
-Enjoying Anagram Panda?
-</p><p>
-<a href="https://ko-fi.com/burgerjump"
-target="_blank"
-rel="noopener noreferrer">
+const opened =
+menuPanel.classList.toggle("open");
 
-Support the next version at ko-fi.com/burgerjump
+menuBtn.setAttribute(
+"aria-expanded",
+opened
+);
 
-</a>
-</p>
-</section></section><footer><div class="footerTitle">
-ANAGRAM PANDA
-</div><a href="privacy.html">
-Privacy Policy
-</a><div class="footerLinks"><a
-href="https://instagram.com/anagrampanda"
-target="_blank"
-rel="noopener noreferrer">
+menuPanel.setAttribute(
+"aria-hidden",
+!opened
+);
 
-ig @anagrampanda
+}
+);
 
-</a><a href="mailto:anagrampanda@gmail.com">anagrampanda@gmail.com
 
-</a></div></footer><script>
+/* Close menu when selecting a link */
 
-/*
-  MIGRATION FROM OLD SCORING SYSTEM
+menuPanel
+.querySelectorAll("a")
+.forEach(function(link){
 
-  The old 5000-point score was cumulative.
-  The new High Score is based on ONE SINGLE WORD.
+link.addEventListener(
+"click",
+function(){
 
-  This flag makes sure the old score is deleted only once.
-*/
+menuPanel.classList.remove("open");
 
-if(
-  localStorage.getItem("highScoreMigration") !== "done"
-){
+menuBtn.setAttribute(
+"aria-expanded",
+"false"
+);
 
-  localStorage.removeItem("highScore");
-  localStorage.removeItem("highScoreWord");
-  localStorage.removeItem("highScoreDate");
+menuPanel.setAttribute(
+"aria-hidden",
+"true"
+);
 
-  localStorage.setItem(
-    "highScoreMigration",
-    "done"
-  );
+}
+);
+});
+
+
+/* ========================= */
+/* SHARE */
+/* ========================= */
+
+const shareBtn =
+document.getElementById("shareBtn");
+
+
+shareBtn.addEventListener(
+"click",
+async function(){
+
+const shareData = {
+
+title:
+"Anagram Panda",
+
+text:
+"Can You Beat the Panda? Try Anagram Panda!",
+
+url:
+window.location.origin
+
+};
+
+
+if(navigator.share){
+
+try{
+
+await navigator.share(
+shareData
+);
+
+}catch(error){
+
+}
+
+}else{
+
+try{
+
+await navigator.clipboard.writeText(
+window.location.origin
+);
+
+shareBtn.textContent =
+"LINK COPIED";
+
+setTimeout(
+function(){
+
+shareBtn.textContent =
+"SHARE GAME";
+
+},
+1600
+);
+
+}catch(error){
+
+}
+
+}
+
+}
+);
+
+
+/* ========================= */
+/* AUDIO SETTING */
+/* ========================= */
+
+const audioBtn =
+document.getElementById("audioBtn");
+
+const audioState =
+document.getElementById("audioState");
+
+
+let audioEnabled =
+localStorage.getItem("audioEnabled");
+
+
+if(audioEnabled === null){
+
+audioEnabled = "true";
+
+localStorage.setItem(
+"audioEnabled",
+"true"
+);
 
 }
 
 
+function updateAudio(){
+
+audioState.textContent =
+audioEnabled === "true"
+? "ON"
+: "OFF";
+
+}
+
+
+updateAudio();
+
+
+audioBtn.addEventListener(
+"click",
+function(){
+
+audioEnabled =
+audioEnabled === "true"
+? "false"
+: "true";
+
+localStorage.setItem(
+"audioEnabled",
+audioEnabled
+);
+
+updateAudio();
+
+}
+);
+
+
 /* ========================= */
-/* NEW HIGH SCORE */
+/* VIBRATION SETTING */
+/* ========================= */
+
+const vibrationBtn =
+document.getElementById("vibrationBtn");
+
+const vibrationState =
+document.getElementById("vibrationState");
+
+
+let vibrationEnabled =
+localStorage.getItem("vibrationEnabled");
+
+
+if(vibrationEnabled === null){
+
+vibrationEnabled = "true";
+
+localStorage.setItem(
+"vibrationEnabled",
+"true"
+);
+
+}
+
+
+function updateVibration(){
+
+vibrationState.textContent =
+vibrationEnabled === "true"
+? "ON"
+: "OFF";
+
+}
+
+
+updateVibration();
+
+
+vibrationBtn.addEventListener(
+"click",
+function(){
+
+vibrationEnabled =
+vibrationEnabled === "true"
+? "false"
+: "true";
+
+localStorage.setItem(
+"vibrationEnabled",
+vibrationEnabled
+);
+
+updateVibration();
+
+}
+);
+
+
+/* ========================= */
+/* HIGH SCORE */
 /* ========================= */
 
 const highScore =
-  localStorage.getItem("highScore") || "â€”";
+localStorage.getItem("highScore") || "—";
 
 const highScoreWord =
-  localStorage.getItem("highScoreWord") || "â€”";
+localStorage.getItem("highScoreWord") || "—";
 
 const highScoreDate =
-  localStorage.getItem("highScoreDate") || "â€”";
+localStorage.getItem("highScoreDate") || "—";
 
 
-document.getElementById("highScore").textContent =
-  highScore;
-
-document.getElementById("highScoreWord").textContent =
-  highScoreWord;
-
-document.getElementById("highScoreDate").textContent =
-  highScoreDate;
+document.getElementById(
+"highScore"
+).textContent =
+highScore;
 
 
-/* ========================= */
-/* INSTALL APP */
-/* ========================= */
-
-let deferredPrompt = null;
-
-const installBtn =
-  document.getElementById("installBtn");
+document.getElementById(
+"highScoreWord"
+).textContent =
+highScoreWord;
 
 
-/*
-  Android / Chrome
+document.getElementById(
+"highScoreDate"
+).textContent =
+highScoreDate;
 
-  Save the browser installation prompt
-  when it becomes available.
-*/
-
-window.addEventListener(
-  "beforeinstallprompt",
-  function(event){
-
-    event.preventDefault();
-
-    deferredPrompt = event;
-
-  }
-);
+</script>
 
 
-/*
-  INSTALL BUTTON
-*/
+</main>
 
-installBtn.addEventListener(
-  "click",
-  async function(){
+</body>
 
-    /*
-      If the browser supports
-      the automatic installation prompt,
-      open it.
-    */
-
-    if(deferredPrompt){
-
-      deferredPrompt.prompt();
-
-      await deferredPrompt.userChoice;
-
-      deferredPrompt = null;
-
-      return;
-
-    }
-
-
-    /*
-      iPhone / iPad
-    */
-
-    const isIOS =
-      /iphone|ipad|ipod/i.test(
-        navigator.userAgent
-      );
-
-    const isStandalone =
-      window.navigator.standalone === true ||
-      window.matchMedia(
-        "(display-mode: standalone)"
-      ).matches;
-
-
-    if(isIOS && !isStandalone){
-
-      alert(
-        "To install Anagram Panda:\n\n" +
-        "1. Tap Share\n" +
-        "2. Choose \"Add to Home Screen\"\n" +
-        "3. Tap Add"
-      );
-
-      return;
-
-    }
-
-
-    /*
-      Android / other browsers where
-      the automatic prompt is unavailable.
-    */
-
-    alert(
-      "To install Anagram Panda:\n\n" +
-      "Open your browser menu and choose " +
-      "\"Add to Home screen\" or \"Install app\"."
-    );
-
-  }
-);
-
-
-/*
-  Hide button after successful installation.
-*/
-
-window.addEventListener(
-  "appinstalled",
-  function(){
-
-    installBtn.style.display = "none";
-
-    deferredPrompt = null;
-
-  }
-);
-
-</script></main></body></html>
+</html>
