@@ -956,3 +956,32 @@ padding-right:18px;
 #vibrationState{
 margin-left:8px;
 }
+
+
+.sectionHeader{
+
+width:100%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+margin-bottom:8px;
+
+}
+
+.sectionHeader .sectionTitle{
+
+margin:0;
+
+}
+
+.sectionHeader .menuBtn{
+
+position:static;
+
+flex-shrink:0;
+
+}
