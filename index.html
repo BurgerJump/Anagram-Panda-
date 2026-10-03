@@ -52,6 +52,9 @@ content="Anagram Panda is a fast 9-letter word puzzle game. Find the best word y
 
 
 
+<!-- MENU -->
+
+
 
 <!-- LOGO -->
 
@@ -100,7 +103,7 @@ class="menuBtn"
 id="menuBtn"
 aria-label="Open menu"
 aria-expanded="false">
-â˜°
+
 </button>
 
 <nav
@@ -163,9 +166,7 @@ alt="Anagram Panda gameplay demo">
 
 
 
-<div class="demoLine"></div>
 
-</div>
 
 </div>
 
@@ -205,15 +206,15 @@ HIGHEST
 <div class="highestRow">
 
 <strong id="highScore">
-â€”
+—
 </strong>
 
 <span id="highScoreWord">
-â€”
+—
 </span>
 
 <span id="highScoreDate">
-â€”
+—
 </span>
 
 </div>
@@ -479,13 +480,13 @@ updateVibration();
 /* ========================= */
 
 const highScore =
-localStorage.getItem("highScore") || "â€”";
+localStorage.getItem("highScore") || "—";
 
 const highScoreWord =
-localStorage.getItem("highScoreWord") || "â€”";
+localStorage.getItem("highScoreWord") || "—";
 
 const highScoreDate =
-localStorage.getItem("highScoreDate") || "â€”";
+localStorage.getItem("highScoreDate") || "—";
 
 
 document.getElementById(

@@ -313,15 +313,12 @@ box-shadow:
 
 
 /* =========================================================
-   HOW TO PLAY VISUAL
+   HOW TO PLAY VISUAL gif
    ========================================================= */
-
 .howVisual{
 position:relative;
 
 width:100%;
-
-height:120px;
 
 margin:0;
 
@@ -334,100 +331,15 @@ box-shadow:
 }
 
 .howBackground{
-position:absolute;
-
-inset:0;
+display:block;
 
 width:100%;
-height:100%;
+height:auto;
 
-object-fit:cover;
-
-object-position:center;
-
-display:block;
+border-radius:16px;
 }
 
 
-/* =========================================================
-   DEMO OVERLAY
-   ========================================================= */
-
-.howOverlay{
-position:absolute;
-
-inset:0;
-
-display:flex;
-flex-direction:column;
-
-align-items:center;
-justify-content:center;
-
-padding:8px;
-}
-
-
-/* =========================================================
-   DEMO LETTERS
-   ========================================================= */
-
-.demoLetters{
-display:grid;
-
-grid-template-columns:
-repeat(3,1fr);
-
-gap:5px;
-
-width:150px;
-
-margin:auto;
-}
-
-.demoLetters span{
-width:42px;
-height:30px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-border-radius:7px;
-
-background:rgba(239,228,205,0.94);
-
-color:#4b3b2c;
-
-font-size:18px;
-font-weight:900;
-
-box-shadow:
-0 3px 0 #a68d6d;
-}
-
-
-/* =========================================================
-   DEMO WORD
-   ========================================================= */
-
-.demoWord{
-margin-top:5px;
-
-font-size:19px;
-font-weight:900;
-
-letter-spacing:2px;
-
-color:#ffffff;
-
-text-shadow:
-0 2px 3px rgba(0,0,0,0.45);
-}
-
-.demoLine{
-display:none;
-}
 
 
 /* =========================================================
