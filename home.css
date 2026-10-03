@@ -23,7 +23,7 @@ overflow:hidden;
 
 font-family:"Nunito", Arial, sans-serif;
 
-color:#06140b;
+color:#efe4cd;
 
 background:
 linear-gradient(
@@ -34,6 +34,7 @@ url("background.png");
 
 background-size:cover;
 background-position:center;
+background-attachment:fixed;
 background-repeat:no-repeat;
 }
 
@@ -48,60 +49,8 @@ text-decoration:none;
 
 .home{
 width:100%;
-min-height:100vh;
-}
-
-/* =========================================================
-   ANAGRAM PANDA — HOME
-   ========================================================= */
-
-html{
--webkit-text-size-adjust:100%;
-text-size-adjust:100%;
-}
-
-*{
-box-sizing:border-box;
-}
-
-html,
-body{
-margin:0;
-padding:0;
-min-height:100%;
-}
-
-body{
+height:100dvh;
 overflow:hidden;
-
-font-family:"Nunito", Arial, sans-serif;
-
-color:#06140b;
-
-background:
-linear-gradient(
-rgba(214,181,130,0.82),
-rgba(202,165,112,0.38)
-),
-url("background.png");
-
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-}
-
-a{
-text-decoration:none;
-}
-
-
-/* =========================================================
-   HOME
-   ========================================================= */
-
-.home{
-width:100%;
-min-height:100vh;
 }
 
 .hero{
@@ -109,26 +58,29 @@ position:relative;
 
 width:100%;
 max-width:520px;
-min-height:100vh;
+height:100dvh;
+min-height:0;
 
 margin:0 auto;
 
 padding:
 calc(8px + env(safe-area-inset-top))
 8px
-20px;
+12px;
 
 display:flex;
 flex-direction:column;
 align-items:center;
 
 text-align:center;
+
+overflow:hidden;
 }
 
 
 /* =========================================================
    LOGO
-   ========================================================= */
+========================================================= */
 
 .titleArea{
 width:100%;
@@ -138,6 +90,8 @@ margin:0 0 8px;
 display:flex;
 flex-direction:column;
 align-items:center;
+
+flex-shrink:0;
 }
 
 .gameLogo{
@@ -163,16 +117,30 @@ border-radius:18px;
 
 
 /* =========================================================
-   HOW TO PLAY HEADER
-   ========================================================= */
+   HOW TO PLAY
+========================================================= */
 
 .howToPlay{
 position:relative;
+z-index:10;
 
 width:100%;
 
 margin:0;
+
+display:flex;
+flex-direction:column;
+
+flex:1;
+min-height:0;
+
+overflow:hidden;
 }
+
+
+/* =========================================================
+   HOW TO PLAY HEADER
+========================================================= */
 
 .sectionHeader{
 position:relative;
@@ -187,6 +155,8 @@ align-items:center;
 margin:0 0 6px;
 
 text-align:left;
+
+flex-shrink:0;
 }
 
 .sectionTitle{
@@ -203,7 +173,7 @@ color:#06140b;
 
 /* =========================================================
    MENU BUTTON
-   ========================================================= */
+========================================================= */
 
 .menuBtn{
 position:relative;
@@ -253,7 +223,7 @@ box-shadow:
 
 /* =========================================================
    MENU PANEL
-   ========================================================= */
+========================================================= */
 
 .menuPanel{
 position:absolute;
@@ -278,7 +248,7 @@ border-radius:18px;
 box-shadow:
 0 12px 30px rgba(0,0,0,0.25);
 
-z-index:1000;
+z-index:1002;
 
 transform:
 translateY(-8px)
@@ -306,7 +276,7 @@ pointer-events:auto;
 
 /* =========================================================
    MENU CONTENT
-   ========================================================= */
+========================================================= */
 
 .menuTitle{
 padding:
@@ -340,7 +310,6 @@ border-radius:12px;
 
 background:#806348;
 
-color:#ffffff;
 
 font-family:inherit;
 font-size:15px;
@@ -366,606 +335,8 @@ box-shadow:
 
 
 /* =========================================================
-   HOW TO PLAY VISUAL gif
-   ========================================================= */
-.howVisual{
-position:relative;
-
-width:100%;
-
-margin:0;
-
-border-radius:16px;
-
-overflow:hidden;
-
-box-shadow:
-0 5px 14px rgba(0,0,0,0.16);
-}
-
-.howBackground{
-display:block;
-
-width:100%;
-height:auto;
-
-border-radius:16px;
-}
-
-
-
-
-/* =========================================================
-   HEADLINE
-   ========================================================= */
-
-.howHeadline{
-margin:
-8px
-0
-3px;
-
-font-size:25px;
-font-weight:900;
-
-line-height:1.15;
-
-color:#06140b;
-}
-
-
-/* =========================================================
-   STEPS
-   ========================================================= */
-
-.howSteps{
-margin:0;
-
-font-size:25px;
-font-weight:700;
-
-line-height:1.2;
-
-color:#06140b;
-}
-
-
-/* =========================================================
-   PLAY
-   ========================================================= */
-
-.playBtn{
-display:flex;
-
-width:min(330px,90vw);
-
-height:58px;
-
-margin:
-12px
-auto
-0;
-
-align-items:center;
-justify-content:center;
-
-padding:
-10px
-24px;
-
-border:none;
-border-radius:17px;
-
-background:#806348;
-
-color:#ffffff;
-
-font-family:inherit;
-
-font-size:28px;
-font-weight:900;
-
-line-height:1;
-
-box-shadow:
-0 5px 0 #59432f,
-0 8px 14px rgba(0,0,0,0.18);
-
-cursor:pointer;
-}
-
-.playBtn:active{
-transform:translateY(4px);
-
-box-shadow:
-0 2px 0 #59432f,
-0 4px 8px rgba(0,0,0,0.15);
-}
-
-
-/* =========================================================
-   HIGHEST
-   ========================================================= */
-
-.quickInfo{
-width:100%;
-
-margin:
-10px
-0
-0;
-
-padding:0;
-
-text-align:center;
-}
-
-.highestTitle{
-margin:0 0 3px;
-
-font-size:19px;
-font-weight:900;
-
-line-height:1.1;
-
-color:#06140b;
-}
-
-.highestRow{
-display:flex;
-
-align-items:center;
-justify-content:center;
-
-gap:8px;
-
-white-space:nowrap;
-
-font-size:17px;
-font-weight:800;
-
-line-height:1.15;
-
-color:#06140b;
-}
-
-#highScore{
-font-weight:900;
-}
-
-#highScoreWord{
-font-weight:900;
-}
-
-#highScoreDate{
-font-weight:700;
-}
-
-
-/* =========================================================
-   AUDIO / VIBRATION
-   ========================================================= */
-
-#audioState,
-#vibrationState{
-margin-left:8px;
-}
-
-
-/* =========================================================
-   MOBILE / SHORT SCREENS
-   ========================================================= */
-
-@media(max-height:700px){
-
-.hero{
-padding-top:
-calc(6px + env(safe-area-inset-top));
-}
-
-.titleArea{
-margin-bottom:5px;
-}
-
-.sectionHeader{
-min-height:42px;
-
-margin-bottom:4px;
-}
-
-.menuBtn{
-width:42px;
-height:42px;
-
-font-size:24px;
-
-border-radius:12px;
-}
-
-.menuPanel{
-top:42px;
-}
-
-.howVisual{
-height:100px;
-}
-
-
-.howHeadline{
-margin-top:6px;
-
-font-size:17px;
-}
-
-.howSteps{
-font-size:14px;
-}
-
-.playBtn{
-height:52px;
-
-margin-top:9px;
-
-font-size:25px;
-}
-
-.quickInfo{
-margin-top:7px;
-}
-
-.highestTitle{
-font-size:17px;
-}
-
-.highestRow{
-font-size:25px;
-gap:6px;
-}
-
-}
-
-
-/* =========================================================
-   VERY SHORT SCREENS
-   ========================================================= */
-
-@media(max-height:620px){
-
-.hero{
-padding-top:
-calc(4px + env(safe-area-inset-top));
-
-padding-bottom:10px;
-}
-
-.howVisual{
-height:82px;
-}
-
-.demoLetters{
-transform:scale(.85);
-}
-
-.demoWord{
-margin-top:0;
-
-font-size:15px;
-}
-
-.howHeadline{
-margin-top:4px;
-
-font-size:15px;
-}
-
-.howSteps{
-font-size:13px;
-}
-
-.playBtn{
-height:46px;
-
-margin-top:6px;
-
-font-size:23px;
-}
-
-.quickInfo{
-margin-top:5px;
-}
-
-}
-
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
-
-button,
-a{
--webkit-tap-highlight-color:transparent;
-}
-
-button:focus-visible,
-a:focus-visible{
-outline:3px solid rgba(6,20,11,0.55);
-outline-offset:3px;
-}
-
-@media (max-height:700px){
-
-.hero{
-padding-top:
-calc(6px + env(safe-area-inset-top));
-}
-
-.titleArea{
-margin-bottom:4px;
-}
-
-.sectionHeader{
-margin-bottom:4px;
-}
-
-.howHeadline{
-margin-top:5px;
-margin-bottom:2px;
-}
-
-.howSteps{
-margin-bottom:0;
-}
-
-.playBtn{
-margin-top:7px;
-}
-
-.quickInfo{
-margin-top:6px;
-}
-
-}
-
-
-
-
-
-
-/* =========================================================
-   LOGO
-   ========================================================= */
-
-.titleArea{
-width:100%;
-
-margin:0 0 8px;
-
-display:flex;
-flex-direction:column;
-align-items:center;
-}
-
-.gameLogo{
-display:block;
-
-width:100%;
-
-margin:0;
-
-border-radius:18px;
-
-overflow:hidden;
-}
-
-.gameLogo img{
-display:block;
-
-width:100%;
-height:auto;
-
-border-radius:18px;
-}
-
-
-/* =========================================================
-   HOW TO PLAY HEADER
-   ========================================================= */
-
-.howToPlay{
-position:relative;
-
-width:100%;
-
-margin:0;
-
-display:flex;
-flex-direction:column;
-
-flex:1;
-min-height:0;
-}
-
-.sectionTitle{
-flex:1;
-
-font-size:25px;
-font-weight:900;
-
-line-height:1;
-
-color:#06140b;
-}
-
-
-/* =========================================================
-   MENU BUTTON
-   ========================================================= */
-
-.menuBtn{
-position:relative;
-
-width:48px;
-height:48px;
-
-margin:0;
-
-padding:0;
-
-flex-shrink:0;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-border:none;
-border-radius:14px;
-
-background:rgba(239,228,205,0.94);
-
-color:#4b3b2c;
-
-font-family:inherit;
-font-size:27px;
-font-weight:900;
-line-height:1;
-
-box-shadow:
-0 5px 0 #a68d6d,
-0 8px 14px rgba(0,0,0,0.18);
-
-z-index:1001;
-
-cursor:pointer;
-}
-
-.menuBtn:active{
-transform:translateY(4px);
-
-box-shadow:
-0 2px 0 #a68d6d,
-0 4px 8px rgba(0,0,0,0.16);
-}
-
-
-/* =========================================================
-   MENU PANEL
-   ========================================================= */
-
-.menuPanel{
-position:absolute;
-
-top:48px;
-right:0;
-
-width:min(270px,calc(100vw - 24px));
-
-padding:12px;
-
-display:flex;
-flex-direction:column;
-gap:8px;
-
-background:rgba(239,228,205,0.98);
-
-border:2px solid rgba(87,68,48,0.20);
-
-border-radius:18px;
-
-box-shadow:
-0 12px 30px rgba(0,0,0,0.25);
-
-z-index:1000;
-
-transform:
-translateY(-8px)
-scale(0.96);
-
-opacity:0;
-
-pointer-events:none;
-
-transition:
-opacity 0.15s ease,
-transform 0.15s ease;
-}
-
-.menuPanel.open{
-opacity:1;
-
-transform:
-translateY(0)
-scale(1);
-
-pointer-events:auto;
-}
-
-
-/* =========================================================
-   MENU CONTENT
-   ========================================================= */
-
-.menuTitle{
-padding:
-8px
-6px
-12px;
-
-font-size:18px;
-font-weight:900;
-
-letter-spacing:1px;
-
-color:#4b3b2c;
-}
-
-.menuPanel a,
-.menuPanel button{
-width:100%;
-min-height:44px;
-
-display:flex;
-align-items:center;
-justify-content:flex-start;
-
-padding:
-9px
-13px;
-
-border:none;
-border-radius:12px;
-
-background:#806348;
-
-color:#ffffff;
-
-font-family:inherit;
-font-size:15px;
-font-weight:800;
-
-text-align:left;
-
-box-shadow:
-0 4px 0 #59432f,
-0 6px 10px rgba(0,0,0,0.15);
-
-cursor:pointer;
-}
-
-.menuPanel a:active,
-.menuPanel button:active{
-transform:translateY(3px);
-
-box-shadow:
-0 1px 0 #59432f,
-0 3px 6px rgba(0,0,0,0.12);
-}
-
-
-/* =========================================================
-   HOW TO PLAY VISUAL gif
-   ========================================================= */
-
-
+   FLEXIBLE GIF
+========================================================= */
 
 .howVisual{
 position:relative;
@@ -1000,49 +371,61 @@ object-fit:contain;
 border-radius:16px;
 }
 
+
 /* =========================================================
    HEADLINE
-   ========================================================= */
+========================================================= */
 
 .howHeadline{
+width:100%;
+
 margin:
 8px
 0
 3px;
 
-font-size:15px;
+font-size:20px;
 font-weight:900;
 
 line-height:1.15;
 
 color:#06140b;
+
+flex-shrink:0;
 }
 
 
 /* =========================================================
    STEPS
-   ========================================================= */
+========================================================= */
 
 .howSteps{
+width:100%;
+
 margin:0;
 
-font-size:5px;
+font-size:25px;
 font-weight:700;
 
 line-height:1.2;
 
-color:#06140b;
+color:#efe4cd;
+
+flex-shrink:0;
 }
 
 
 /* =========================================================
-   PLAY btn
-   ========================================================= */
+   PLAY
+========================================================= */
 
 .playBtn{
 display:flex;
 
-width:min(330px,90vw);
+position:relative;
+z-index:1;
+
+width:min(360px,90vw);
 
 height:58px;
 
@@ -1063,7 +446,7 @@ border-radius:17px;
 
 background:#806348;
 
-color:rgba(239,228,205);
+color:#efe4cd;
 
 font-family:inherit;
 
@@ -1077,6 +460,8 @@ box-shadow:
 0 8px 14px rgba(0,0,0,0.18);
 
 cursor:pointer;
+
+flex-shrink:0;
 }
 
 .playBtn:active{
@@ -1090,7 +475,7 @@ box-shadow:
 
 /* =========================================================
    HIGHEST
-   ========================================================= */
+========================================================= */
 
 .quickInfo{
 width:100%;
@@ -1103,6 +488,8 @@ margin:
 padding:0;
 
 text-align:center;
+
+flex-shrink:0;
 }
 
 .highestTitle{
@@ -1113,7 +500,6 @@ font-weight:900;
 
 line-height:1.1;
 
-color:#06140b;
 }
 
 .highestRow{
@@ -1131,7 +517,6 @@ font-weight:800;
 
 line-height:1.15;
 
-color:#06140b;
 }
 
 #highScore{
@@ -1149,7 +534,7 @@ font-weight:700;
 
 /* =========================================================
    AUDIO / VIBRATION
-   ========================================================= */
+========================================================= */
 
 #audioState,
 #vibrationState{
@@ -1158,18 +543,36 @@ margin-left:8px;
 
 
 /* =========================================================
-   MOBILE / SHORT SCREENS
-   ========================================================= */
+   ACCESSIBILITY
+========================================================= */
+
+button,
+a{
+-webkit-tap-highlight-color:transparent;
+}
+
+button:focus-visible,
+a:focus-visible{
+outline:3px solid rgba(6,20,11,0.55);
+outline-offset:3px;
+}
+
+
+/* =========================================================
+   SHORT SCREENS
+========================================================= */
 
 @media(max-height:700px){
 
 .hero{
 padding-top:
 calc(6px + env(safe-area-inset-top));
+
+padding-bottom:8px;
 }
 
 .titleArea{
-margin-bottom:5px;
+margin-bottom:4px;
 }
 
 .sectionHeader{
@@ -1191,28 +594,29 @@ border-radius:12px;
 top:42px;
 }
 
-
-
 .howHeadline{
-margin-top:6px;
+margin-top:5px;
+margin-bottom:2px;
 
 font-size:17px;
 }
 
 .howSteps{
 font-size:14px;
+
+margin-bottom:0;
 }
 
 .playBtn{
 height:52px;
 
-margin-top:9px;
+margin-top:7px;
 
 font-size:25px;
 }
 
 .quickInfo{
-margin-top:7px;
+margin-top:6px;
 }
 
 .highestTitle{
@@ -1221,6 +625,7 @@ font-size:17px;
 
 .highestRow{
 font-size:25px;
+
 gap:6px;
 }
 
@@ -1229,7 +634,7 @@ gap:6px;
 
 /* =========================================================
    VERY SHORT SCREENS
-   ========================================================= */
+========================================================= */
 
 @media(max-height:620px){
 
@@ -1237,9 +642,8 @@ gap:6px;
 padding-top:
 calc(4px + env(safe-area-inset-top));
 
-padding-bottom:10px;
+padding-bottom:5px;
 }
-
 
 .howHeadline{
 margin-top:4px;
@@ -1263,57 +667,14 @@ font-size:23px;
 margin-top:5px;
 }
 
+.highestTitle{
+font-size:15px;
 }
 
+.highestRow{
+font-size:18px;
 
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
-
-button,
-a{
--webkit-tap-highlight-color:transparent;
-}
-
-button:focus-visible,
-a:focus-visible{
-outline:3px solid rgba(6,20,11,0.55);
-outline-offset:3px;
-}
-
-@media (max-height:700px){
-
-.hero{
-padding-top:
-calc(6px + env(safe-area-inset-top));
-}
-
-.titleArea{
-margin-bottom:4px;
-}
-
-.sectionHeader{
-margin-bottom:4px;
-}
-
-.howHeadline{
-margin-top:5px;
-margin-bottom:2px;
-}
-
-.howSteps{
-margin-bottom:0;
-}
-
-.playBtn{
-margin-top:7px;
-}
-
-.quickInfo{
-margin-top:6px;
+gap:6px;
 }
 
 }
-
-
-
