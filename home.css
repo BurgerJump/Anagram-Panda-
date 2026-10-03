@@ -352,7 +352,7 @@ margin:
 0
 3px;
 
-font-size:19px;
+font-size219px;
 font-weight:900;
 
 line-height:1.15;
@@ -368,7 +368,7 @@ color:#06140b;
 .howSteps{
 margin:0;
 
-font-size:15px;
+font-size:25px;
 font-weight:700;
 
 line-height:1.2;
@@ -537,22 +537,6 @@ top:42px;
 height:100px;
 }
 
-.demoLetters{
-width:135px;
-
-gap:4px;
-}
-
-.demoLetters span{
-width:38px;
-height:25px;
-
-font-size:16px;
-}
-
-.demoWord{
-font-size:17px;
-}
 
 .howHeadline{
 margin-top:6px;
@@ -581,7 +565,7 @@ font-size:17px;
 }
 
 .highestRow{
-font-size:15px;
+font-size:25px;
 gap:6px;
 }
 
@@ -654,3 +638,40 @@ a:focus-visible{
 outline:3px solid rgba(6,20,11,0.55);
 outline-offset:3px;
 }
+
+@media (max-height:700px){
+
+.hero{
+padding-top:
+calc(6px + env(safe-area-inset-top));
+}
+
+.titleArea{
+margin-bottom:4px;
+}
+
+.sectionHeader{
+margin-bottom:4px;
+}
+
+.howHeadline{
+margin-top:5px;
+margin-bottom:2px;
+}
+
+.howSteps{
+margin-bottom:0;
+}
+
+.playBtn{
+margin-top:7px;
+}
+
+.quickInfo{
+margin-top:6px;
+}
+
+}
+
+
+
