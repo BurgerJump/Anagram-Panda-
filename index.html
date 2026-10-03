@@ -9,6 +9,12 @@
 name="viewport"
 content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QW52EWJVKH"></script>
 
@@ -48,52 +54,7 @@ content="Anagram Panda is a fast 9-letter word puzzle game. Find the best word y
 
 <!-- MENU -->
 
-<nav
-class="menuPanel"
-id="menuPanel"
-aria-hidden="true">
 
-<div class="menuTitle">
-MENU
-</div>
-
-
-
-
-
-<button
-type="button"
-id="audioBtn">
-AUDIO
-<span id="audioState">ON</span>
-</button>
-
-<button
-type="button"
-id="vibrationBtn">
-VIBRATION
-<span id="vibrationState">ON</span>
-</button>
-
-<a href="about.html">
-ABOUT/ CONTACT
-</a>
-<a href="about.html">
-MORE GAMES...
-</a>
-
-<button
-type="button"
-id="shareBtn">
-SHARE GAME
-</button>
-
-
-<a href="privacy.html">
-PRIVACY POLICY
-</a>
-
-</nav>
 
 <!-- LOGO -->
 
@@ -142,41 +103,67 @@ class="menuBtn"
 id="menuBtn"
 aria-label="Open menu"
 aria-expanded="false">
-â˜°
+
 </button>
+
+<nav
+class="menuPanel"
+id="menuPanel"
+aria-hidden="true">
+
+<div class="menuTitle">
+MENU
+</div>
+
+
+
+
+
+<button
+type="button"
+id="audioBtn">
+AUDIO
+<span id="audioState">ON</span>
+</button>
+
+<button
+type="button"
+id="vibrationBtn">
+VIBRATION
+<span id="vibrationState">ON</span>
+</button>
+
+<a href="about.html">
+ABOUT/CONTACT
+</a>
+
+
+<button
+type="button"
+id="shareBtn">
+SHARE GAME
+</button>
+
+
+
+<a href="privacy.html">
+PRIVACY POLICY
+</a>
+
+</nav>
+
 
 </div>
 
 <div class="howVisual">
 
 <img
-src="background.png"
+src="demo.gif"
 class="howBackground"
-alt="">
+alt="Anagram Panda gameplay demo">
 
 
-<div class="howOverlay">
 
-<div class="demoLetters">
-
-<span>P</span>
-<span>A</span>
-<span>N</span>
-
-<span>L</span>
-<span>O</span>
-<span>B</span>
-
-<span>A</span>
-<span>E</span>
-<span>T</span>
-
-</div>
-
-
-<div class="demoWord">
-PANDA
-</div>
 
 
 <div class="demoLine"></div>
@@ -192,7 +179,7 @@ PANDA
 
 
 <div class="howSteps">
-Tap letters â€¢ Build a word â€¢ Submit
+Tap letters, Build a word & Submit
 </div>
 
 </section>
@@ -221,15 +208,15 @@ HIGHEST
 <div class="highestRow">
 
 <strong id="highScore">
-â€”
+—
 </strong>
 
 <span id="highScoreWord">
-â€”
+—
 </span>
 
 <span id="highScoreDate">
-â€”
+—
 </span>
 
 </div>
@@ -495,13 +482,13 @@ updateVibration();
 /* ========================= */
 
 const highScore =
-localStorage.getItem("highScore") || "â€”";
+localStorage.getItem("highScore") || "—";
 
 const highScoreWord =
-localStorage.getItem("highScoreWord") || "â€”";
+localStorage.getItem("highScoreWord") || "—";
 
 const highScoreDate =
-localStorage.getItem("highScoreDate") || "â€”";
+localStorage.getItem("highScoreDate") || "—";
 
 
 document.getElementById(
