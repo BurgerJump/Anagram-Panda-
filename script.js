@@ -1,6 +1,11 @@
+/* =========================================================
+   ANAGRAM PANDA
+   ========================================================= */
+
+
 /* =========================
-/ LETTERS /
-/ ========================= */
+   LETTERS
+========================= */
 
 const englishLetters = [
   "E","E","E","E","E","E","E",
@@ -31,9 +36,10 @@ const englishLetters = [
   "Z"
 ];
 
+
 /* =========================
-/ ELEMENTS /
-/ ========================= */
+   ELEMENTS
+========================= */
 
 const lettersDiv =
   document.getElementById("letters");
@@ -44,12 +50,6 @@ const wordSlots =
 const scoreText =
   document.getElementById("score");
 
-const timeText =
-  document.getElementById("time") || {
-    innerText: ""
-  };
-  
-  
 const message =
   document.getElementById("message");
 
@@ -59,9 +59,48 @@ const roundBtn =
 const highScoreText =
   document.getElementById("highScore");
 
+const deleteBtn =
+  document.getElementById("deleteBtn");
+
+const shuffleBtn =
+  document.getElementById("shuffleBtn");
+
+const clearBtn =
+  document.getElementById("clearBtn");
+
+const submitBtn =
+  document.getElementById("submitBtn");
+
+const keySound = new Audio("key.mp3");
+keySound.preload = "auto";
+
+const key2Sound = new Audio("key2.mp3");
+key2Sound.preload = "auto";
+
+const key3Sound = new Audio("key3.mp3");
+key3Sound.preload = "auto";
+
+const key4Sound = new Audio("key4.mp3");
+key4Sound.preload = "auto";
+
+
+
+
+
+function selectLetter(index){
+
+  if(gameOver)
+    return;
+
+  // ...
+}
+
+
+
+
 /* =========================
-/ STATE /
-/ ========================= */
+   STATE
+========================= */
 
 let currentLetters = [];
 
@@ -85,20 +124,26 @@ let bonusTarget = "";
 
 let roundScores = [0, 0, 0, 0];
 
+
 /* =========================
-/ DICTIONARY /
-/ ========================= */
+   DICTIONARY
+========================= */
 
 let dictionary = [];
 
 fetch("words.txt")
-  .then(r => r.text())
+  .then(response => response.text())
   .then(text => {
 
-    dictionary = text
-      .split("\n")
-      .map(w => w.trim().toUpperCase())
-      .filter(w => w.length > 0);
+    dictionary =
+      text
+        .split("\n")
+        .map(word =>
+          word.trim().toUpperCase()
+        )
+        .filter(word =>
+          word.length > 0
+        );
 
   })
   .catch(() => {
@@ -107,46 +152,23 @@ fetch("words.txt")
 
   });
 
-/* =========================
-/ SAVE HIGH SCORE /
-/ ========================= */
 
-function saveHighScore(points) {
+/* ========================= */
+/* HIGH SCORE */
+/* ========================= */
 
-  const oldHighScore =
-    Number(
-      localStorage.getItem("highScore") || 0
-    );
+const highScore =
+localStorage.getItem("highScore") || "0";
 
-  if(points <= oldHighScore){
-    return;
-  }
+document.getElementById(
+"highScore"
+).textContent =
+highScore;
 
-  localStorage.setItem(
-    "highScore",
-    points
-  );
-}
 
 /* =========================
-/ LOAD HIGH SCORE /
-/ ========================= */
-
-function loadHighScore(){
-
-  if(!highScoreText)
-    return;
-
-  highScoreText.innerText =
-    Number(
-      localStorage.getItem("highScore") || 0
-    );
-
-}
-
-/* =========================
-/ GENERATE NORMAL LETTERS /
-/ ========================= */
+   GENERATE LETTERS
+========================= */
 
 function generateLetters(){
 
@@ -163,8 +185,7 @@ function generateLetters(){
   currentLetters.push(
     vowels[
       Math.floor(
-        Math.random() *
-        vowels.length
+        Math.random() * vowels.length
       )
     ]
   );
@@ -190,9 +211,10 @@ function generateLetters(){
 
 }
 
+
 /* =========================
-/ GENERATE BONUS LETTERS /
-/ ========================= */
+   BONUS LETTERS
+========================= */
 
 function generateBonusRound(){
 
@@ -231,9 +253,10 @@ function generateBonusRound(){
 
 }
 
+
 /* =========================
-/ SHUFFLE ARRAY /
-/ ========================= */
+   SHUFFLE ARRAY
+========================= */
 
 function shuffleArray(arr){
 
@@ -245,8 +268,7 @@ function shuffleArray(arr){
 
     const j =
       Math.floor(
-        Math.random() *
-        (i + 1)
+        Math.random() * (i + 1)
       );
 
     [arr[i], arr[j]] =
@@ -256,69 +278,44 @@ function shuffleArray(arr){
 
 }
 
-/* =========================
-/ CLEAR WORD /
-/ ========================= */
-
-function clearWord(){
-
-  if(gameOver)
-    return;
-
-  currentWord = "";
-
-  const btns =
-    document.querySelectorAll(
-      ".letterBtn"
-    );
-
-  btns.forEach(btn => {
-
-    btn.disabled = false;
-
-    btn.style.opacity = 1;
-
-  });
-
-  renderSlots();
-
-}
 
 /* =========================
-/ RENDER LETTERS /
-/ ========================= */
+   RENDER LETTERS
+========================= */
 
 function renderLetters(){
 
   lettersDiv.innerHTML = "";
 
   currentLetters.forEach(
-    (letter,index) => {
+    (letter, index) => {
 
-      const btn =
-        document.createElement(
-          "button"
-        );
+      const button =
+        document.createElement("button");
 
-      btn.className =
+      button.className =
         "letterBtn";
 
-      btn.innerText =
+      button.type =
+        "button";
+
+      button.innerText =
         letter;
 
-      btn.onclick =
+      button.onclick =
         () => selectLetter(index);
 
-      lettersDiv.appendChild(btn);
+      lettersDiv.appendChild(button);
 
     }
   );
 
 }
 
+
 /* =========================
-/ RENDER SLOTS /
-/ ========================= */
+   RENDER SLOTS
+========================= */
 
 function renderSlots(){
 
@@ -327,9 +324,7 @@ function renderSlots(){
   for(let i = 0; i < 9; i++){
 
     const slot =
-      document.createElement(
-        "div"
-      );
+      document.createElement("div");
 
     slot.className =
       "slot";
@@ -343,80 +338,50 @@ function renderSlots(){
 
 }
 
+
 /* =========================
-/ VIBRATION /
-/ ========================= */
+   RESET LETTER BUTTONS
+========================= */
 
-function vibrate(){
+function resetLetterButtons(){
 
-  const vibration =
-    localStorage.getItem(
-      "vibration"
+  const buttons =
+    document.querySelectorAll(
+      ".letterBtn"
     );
 
-  if(
-    vibration === "off" ||
-    vibration === "false"
-  ){
-    return;
-  }
+  buttons.forEach(button => {
 
-  if(
-    navigator.vibrate
-  ){
+    button.disabled = false;
 
-    navigator.vibrate(20);
+    button.style.opacity = 1;
 
-  }
+  });
 
 }
 
-/* =========================
-/ KEY SOUND /
-/ ========================= */
-
-function playKeySound(){
-
-  const audioSetting =
-    localStorage.getItem(
-      "audio"
-    );
-
-  if(
-    audioSetting === "off" ||
-    audioSetting === "false"
-  ){
-    return;
-  }
-
-  const audio =
-    new Audio("audio/key.mp3");
-
-  audio.volume = 0.5;
-
-  audio.play()
-    .catch(() => {});
-
-}
 
 /* =========================
-/ SELECT LETTER /
-/ ========================= */
+   SELECT LETTER
+========================= */
 
 function selectLetter(index){
 
   if(gameOver)
     return;
 
-  const btns =
+  const buttons =
     document.querySelectorAll(
       ".letterBtn"
     );
 
-  const btn =
-    btns[index];
+  const button =
+    buttons[index];
 
-  if(!btn || btn.disabled)
+  if(!button)
+    return;
+
+  if(button.disabled)
     return;
 
   if(currentWord.length >= 9)
@@ -425,9 +390,9 @@ function selectLetter(index){
   currentWord +=
     currentLetters[index];
 
-  btn.disabled = true;
+  button.disabled = true;
 
-  btn.style.opacity = 0.3;
+  button.style.opacity = 0.3;
 
   playKeySound();
 
@@ -437,9 +402,10 @@ function selectLetter(index){
 
 }
 
+
 /* =========================
-/ DELETE LETTER /
-/ ========================= */
+   DELETE
+========================= */
 
 function deleteLetter(){
 
@@ -455,27 +421,27 @@ function deleteLetter(){
     ];
 
   currentWord =
-    currentWord.slice(0,-1);
+    currentWord.slice(0, -1);
 
-  const btns =
+  const buttons =
     document.querySelectorAll(
       ".letterBtn"
     );
 
   for(
-    let i = btns.length - 1;
+    let i = buttons.length - 1;
     i >= 0;
     i--
   ){
 
     if(
       currentLetters[i] === last &&
-      btns[i].disabled
+      buttons[i].disabled
     ){
 
-      btns[i].disabled = false;
+      buttons[i].disabled = false;
 
-      btns[i].style.opacity = 1;
+      buttons[i].style.opacity = 1;
 
       break;
 
@@ -487,9 +453,28 @@ function deleteLetter(){
 
 }
 
+
 /* =========================
-/ SHUFFLE BUTTON /
-/ ========================= */
+   CLEAR
+========================= */
+
+function clearWord(){
+
+  if(gameOver)
+    return;
+
+  currentWord = "";
+
+  resetLetterButtons();
+
+  renderSlots();
+
+}
+
+
+/* =========================
+   SHUFFLE
+========================= */
 
 function shuffleLetters(){
 
@@ -502,26 +487,106 @@ function shuffleLetters(){
 
 }
 
+
 /* =========================
-/ CAN BUILD WORD /
-/ ========================= */
+   SOUND
+========================= */
+
+function playSound(sound){
+
+  const audioSetting =
+    localStorage.getItem("audio");
+
+  if(
+    audioSetting === "off" ||
+    audioSetting === "false"
+  ){
+    return;
+  }
+
+  sound.currentTime = 0;
+  sound.volume = 1.0;
+
+  sound.play()
+    .catch(() => {});
+
+}
+
+
+function playKeySound(){
+
+  playSound(keySound);
+
+}
+
+
+function playActionSound(){
+
+  playSound(key2Sound);
+
+}
+
+
+function playSubmitSound(){
+
+  playSound(key3Sound);
+
+}
+
+
+function playRestartSound(){
+
+  playSound(key4Sound);
+
+}
+
+/* =========================
+   VIBRATION
+========================= */
+
+function vibrate(){
+
+  const vibration =
+    localStorage.getItem("vibration");
+
+  if(
+    vibration === "off" ||
+    vibration === "false"
+  ){
+
+    return;
+
+  }
+
+  if(navigator.vibrate){
+
+    navigator.vibrate(20);
+
+  }
+
+}
+
+
+/* =========================
+   CAN BUILD WORD
+========================= */
 
 function canBuildWord(word){
 
-  let temp =
+  const available =
     [...currentLetters];
 
   for(
-    let letter of word
+    const letter of word
   ){
 
-    const idx =
-      temp.indexOf(letter);
+    const index =
+      available.indexOf(letter);
 
-    if(idx === -1)
+    if(index === -1)
       return false;
 
-    temp.splice(idx,1);
+    available.splice(index, 1);
 
   }
 
@@ -529,9 +594,10 @@ function canBuildWord(word){
 
 }
 
+
 /* =========================
-/ VALID WORD /
-/ ========================= */
+   VALID WORD
+========================= */
 
 function isValidWord(word){
 
@@ -539,9 +605,10 @@ function isValidWord(word){
 
 }
 
+
 /* =========================
-/ FIND BEST WORD /
-/ ========================= */
+   FIND BEST WORD
+========================= */
 
 function findBestWord(){
 
@@ -565,9 +632,10 @@ function findBestWord(){
 
 }
 
+
 /* =========================
-/ GET LONGEST WORDS /
-/ ========================= */
+   LONGEST WORDS
+========================= */
 
 function getLongestWords(bestWord){
 
@@ -576,20 +644,20 @@ function getLongestWords(bestWord){
 
   return [
     ...new Set(
-      dictionary.filter(
-        w =>
-          w.length === bestWord.length &&
-          w.length <= 9 &&
-          canBuildWord(w)
+      dictionary.filter(word =>
+        word.length === bestWord.length &&
+        word.length <= 9 &&
+        canBuildWord(word)
       )
     )
-  ].slice(0,5);
+  ].slice(0, 5);
 
 }
 
+
 /* =========================
-/ TIME BONUS /
-/ ========================= */
+   TIME BONUS
+========================= */
 
 function getTimeBonus(){
 
@@ -603,63 +671,148 @@ function getTimeBonus(){
 
 }
 
-/* =========================
-/ NORMAL WORD SCORE /
-/ ========================= */
 
-function calculateWordScore(word){
+/* =========================
+   TIMER DISPLAY
+========================= */
+
+function showTimer(){
+
+  if(bonusRound){
+
+    message.innerHTML =
+      "TIME " +
+      '<span id="gameTimer">' +
+      time +
+      "</span><br>" +
+      "GUESS THE 9-LETTER WORD";
+
+  }else{
+
+    message.innerHTML =
+      "TIME " +
+      '<span id="gameTimer">' +
+      time +
+      "</span><br>" +
+      "ROUND " +
+      currentRound +
+      " OF " +
+      totalRounds;
+
+  }
+
+  const timerText =
+    document.getElementById(
+      "gameTimer"
+    );
+
+  if(timerText){
+
+    if(time <= 10){
+
+      timerText.style.color =
+        "#b23b3b";
+
+      timerText.style.fontWeight =
+        "900";
+
+      timerText.style.animation =
+        "timerBlink .6s infinite";
+
+    }else{
+
+      timerText.style.color = "";
+
+      timerText.style.fontWeight = "";
+
+      timerText.style.animation = "";
+
+    }
+
+  }
+
+}
+
+
+/* =========================
+   TIMER CSS
+========================= */
+
+const timerStyle =
+  document.createElement("style");
+
+timerStyle.innerHTML = `
+@keyframes timerBlink {
+  0%,100% { opacity:1; }
+  50% { opacity:.35; }
+}
+`;
+
+document.head.appendChild(timerStyle);
+
+
+/* =========================
+   SCORE CALCULATION
+========================= */
+
+function calculateScore(word){
 
   const bestWord =
     findBestWord();
 
-  let letterPoints =
+  const letterPoints =
     word.length * 10;
 
-  let timeBonus =
+  const timeBonus =
     getTimeBonus();
 
-  let longWordBonus = 0;
+  let longestBonus = 0;
 
-  let allLettersBonus = 0;
-
-  if(
-    word.length === 9
-  ){
-
-    allLettersBonus = 100;
-
-  }
+  let nineLetterBonus = 0;
 
   if(
     bestWord &&
     word.length === bestWord.length
   ){
 
-    longWordBonus = 100;
+    longestBonus = 100;
+
+  }
+
+  if(word.length === 9){
+
+    nineLetterBonus = 100;
 
   }
 
   return {
+
     points:
       letterPoints +
       timeBonus +
-      longWordBonus +
-      allLettersBonus,
+      longestBonus +
+      nineLetterBonus,
 
     letterPoints,
+
     timeBonus,
-    longWordBonus,
-    allLettersBonus,
+
+    longestBonus,
+
+    nineLetterBonus,
+
     bestWord
+
   };
 
 }
 
-/* =========================
-/ NORMAL MESSAGE /
-/ ========================= */
 
-function showNormalResult(
+/* =========================
+   SHOW VALID WORD RESULT
+========================= */
+
+function showValidWordResult(
   word,
   result
 ){
@@ -679,19 +832,19 @@ function showNormalResult(
   if(result.timeBonus > 0){
 
     message.innerHTML +=
-      "  +" +
+      "  BONUS +" +
       result.timeBonus;
 
   }
 
-  if(result.longWordBonus > 0){
+  if(result.longestBonus > 0){
 
     message.innerHTML +=
       "<br>LONGEST BONUS +100";
 
   }
 
-  if(result.allLettersBonus > 0){
+  if(result.nineLetterBonus > 0){
 
     message.innerHTML +=
       "<br>9 LETTERS +100";
@@ -699,30 +852,49 @@ function showNormalResult(
   }
 
   message.innerHTML +=
-    "<br><strong>+" +
+    "<br><strong> " +
     result.points +
     " POINTS</strong>";
 
-  if(
-    result.bestWord &&
-    longestWords.length
-  ){
+  if(longestWords.length){
 
     message.innerHTML +=
-      "<br><span style='font-size:13px'>" +
+      "<br><br>" +
+      "<span style='font-size:13px'>" +
       "LONGEST (" +
       result.bestWord.length +
       ") " +
-      longestWords.join(" • ") +
+      longestWords.join(" ï¿½ ") +
       "</span>";
 
   }
 
 }
 
+
 /* =========================
-/ SUBMIT NORMAL WORD /
-/ ========================= */
+   FINISH NORMAL ROUND
+========================= */
+
+function finishNormalRound(){
+
+  clearInterval(timer);
+
+  gameOver = true;
+
+  roundScores[
+    currentRound - 1
+  ] = score;
+
+  roundBtn.innerText =
+    "NEXT ROUND";
+
+}
+
+
+/* =========================
+   VALID NORMAL SUBMIT
+========================= */
 
 function submitNormalWord(word){
 
@@ -754,20 +926,15 @@ function submitNormalWord(word){
   }
 
   const result =
-    calculateWordScore(word);
+    calculateScore(word);
 
   score +=
-    result.points;
-
-  roundScores[
-    currentRound - 1
-  ] +=
     result.points;
 
   scoreText.innerText =
     score;
 
-  showNormalResult(
+  showValidWordResult(
     word,
     result
   );
@@ -776,42 +943,24 @@ function submitNormalWord(word){
 
   renderSlots();
 
-gameOver = true;
-roundBtn.innerText = "NEXT ROUND";
-clearInterval(timer);
+  resetLetterButtons();
 
+  /*
+    A VALID SUBMIT ENDS THE ROUND.
+  */
 
-  const btns =
-    document.querySelectorAll(
-      ".letterBtn"
-    );
-
-  btns.forEach(btn => {
-
-    btn.disabled = false;
-
-    btn.style.opacity = 1;
-
-  });
+  finishNormalRound();
 
   return true;
 
 }
 
+
 /* =========================
-/ SUBMIT BONUS /
-/ ========================= */
+   BONUS SUBMIT
+========================= */
 
 function submitBonusWord(word){
-
-  if(word.length < 9){
-
-    message.innerHTML =
-      "GUESS THE 9-LETTER WORD";
-
-    return false;
-
-  }
 
   if(word !== bonusTarget){
 
@@ -825,22 +974,26 @@ function submitBonusWord(word){
   const timeBonus =
     getTimeBonus();
 
-  const bonusPoints =
+  const points =
     150 +
     timeBonus;
 
-  score +=
-    bonusPoints;
+  score += points;
 
   roundScores[3] =
-    bonusPoints;
+    points;
 
   scoreText.innerText =
     score;
 
+  /*
+    ONLY WORD + POINTS.
+    No "BONUS ROUND OVER".
+  */
+
   message.innerHTML =
     "<span style='font-size:26px'>" +
-    word +
+    bonusTarget +
     "</span>" +
     " <br>" +
     "+150 POINTS";
@@ -848,15 +1001,15 @@ function submitBonusWord(word){
   if(timeBonus > 0){
 
     message.innerHTML +=
-      "  +" +
+      "<br>TIME BONUS +" +
       timeBonus;
 
   }
 
   message.innerHTML +=
-    "<br><strong>+" +
-    bonusPoints +
-    " TOTAL</strong>";
+    "<br><strong> " +
+    points +
+    " POINTS</strong>";
 
   finishBonusRound();
 
@@ -864,118 +1017,226 @@ function submitBonusWord(word){
 
 }
 
+
 /* =========================
-/ SUBMIT /
-/ ========================= */
+   SUBMIT
+========================= */
 
 function submitWord(){
 
   if(gameOver)
     return;
 
-  clearInterval(timer);
-
   const word =
     currentWord.toUpperCase();
 
+  /*
+    BONUS ROUND
+  */
+
   if(bonusRound){
 
-    const success =
-      submitBonusWord(word);
+    if(
+      submitBonusWord(word)
+    ){
 
-    if(!success){
-
-      startTimer();
+      return;
 
     }
+
+    /*
+      Invalid bonus guess:
+      timer continues.
+    */
+
+    startTimer();
 
     return;
 
   }
 
-  const success =
-    submitNormalWord(word);
+  /*
+    NORMAL ROUND
+  */
 
-  if(success){
-
-    startTimer();
-
-  }else{
-
-    startTimer();
-
-  }
+  submitNormalWord(word);
 
 }
 
-/* =========================
-/ AUTO SUBMIT AT TIME 0 /
-/ ========================= */
-
-function autoSubmitAtTime(){
-
-  if(currentWord.length >= 3){
-
-    const word =
-      currentWord.toUpperCase();
-
-    if(bonusRound){
-
-      if(
-        word === bonusTarget
-      ){
-
-        submitBonusWord(word);
-
-        return;
-
-      }
-
-    }else{
-
-      submitNormalWord(word);
-
-    }
-
-  }
-
-  currentWord = "";
-
-  renderSlots();
-
-}
 
 /* =========================
-/ END NORMAL ROUND /
-/ ========================= */
+   TIME UP ï¿½ NORMAL
+========================= */
 
-function endNormalRound(){
+function timeUpNormalRound(){
 
   clearInterval(timer);
 
-  autoSubmitAtTime();
+  /*
+    If a valid word was already entered
+    when the timer reaches zero, submit it.
+  */
+
+  const word =
+    currentWord.toUpperCase();
+
+  if(
+    word.length >= 3 &&
+    canBuildWord(word) &&
+    isValidWord(word)
+  ){
+
+    const result =
+      calculateScore(word);
+
+    score +=
+      result.points;
+
+    scoreText.innerText =
+      score;
+
+    showValidWordResult(
+      word,
+      result
+    );
+
+    currentWord = "";
+
+    renderSlots();
+
+    resetLetterButtons();
+
+    finishNormalRound();
+
+    return;
+
+  }
+
+  /*
+    TIME UP is only shown when
+    there was no valid word.
+  */
 
   gameOver = true;
 
+  const bestWord =
+    findBestWord();
+
+  const longestWords =
+    getLongestWords(
+      bestWord
+    );
+
+  message.innerHTML =
+    "<strong>TIME UP</strong>";
+
+  if(longestWords.length){
+
+    message.innerHTML +=
+      "<br><br>" +
+      "<span style='font-size:13px'>" +
+      "LONGEST (" +
+      bestWord.length +
+      ") " +
+      longestWords.join(" ï¿½ ") +
+      "</span>";
+
+  }
+
   message.innerHTML +=
-    "<br><br><strong>ROUND " +
+    "<br><br>ROUND " +
     currentRound +
-    " COMPLETE</strong>" +
-    "<br>ROUND SCORE: " +
-    roundScores[
-      currentRound - 1
-    ];
+    " COMPLETE";
 
   roundBtn.innerText =
     "NEXT ROUND";
 
 }
 
+
 /* =========================
-/ START BONUS ROUND /
-/ ========================= */
+   TIME UP ï¿½ BONUS
+========================= */
+
+function timeUpBonusRound(){
+
+  clearInterval(timer);
+
+  gameOver = true;
+
+  /*
+    If there was no successful guess,
+    show the target and zero points.
+  */
+
+  message.innerHTML =
+    "<span style='font-size:26px'>" +
+    bonusTarget +
+    "</span>" +
+    "<br>0 POINTS";
+
+  roundBtn.innerText =
+    "NEW GAME";
+
+  saveHighScore(score);
+
+  loadHighScore();
+
+}
+
+
+/* =========================
+   TIMER
+========================= */
+
+function startTimer(){
+
+  clearInterval(timer);
+
+  showTimer();
+
+  timer =
+    setInterval(
+      () => {
+
+        if(time > 0){
+
+          time--;
+
+          showTimer();
+
+        }
+
+        if(time <= 0){
+
+          clearInterval(timer);
+
+          if(bonusRound){
+
+            timeUpBonusRound();
+
+          }else{
+
+            timeUpNormalRound();
+
+          }
+
+        }
+
+      },
+      1000
+    );
+
+}
+
+
+/* =========================
+   START BONUS ROUND
+========================= */
 
 function startBonusRound(){
+
+  clearInterval(timer);
 
   bonusRound = true;
 
@@ -985,24 +1246,21 @@ function startBonusRound(){
 
   time = 90;
 
-  timeText.innerText =
-    time;
+  roundBtn.innerText =
+    "NEW GAME";
 
   generateBonusRound();
 
-  message.innerHTML =
-    "GUESS THE 9-LETTER WORD";
-
-  roundBtn.innerText =
-    "NEW GAME";
+  showTimer();
 
   startTimer();
 
 }
 
+
 /* =========================
-/ FINISH BONUS ROUND /
-/ ========================= */
+   FINISH BONUS
+========================= */
 
 function finishBonusRound(){
 
@@ -1010,32 +1268,31 @@ function finishBonusRound(){
 
   gameOver = true;
 
+  roundBtn.innerText =
+    "NEW GAME";
+
   saveHighScore(score);
 
   loadHighScore();
 
-  roundBtn.innerText =
-    "NEW GAME";
-
 }
 
+
 /* =========================
-/ START NEXT ROUND /
-/ ========================= */
+   NEXT ROUND / NEW GAME
+========================= */
 
 function nextRound(){
 
-  if(
-    !gameOver
-  ){
-
+  if(!gameOver)
     return;
 
-  }
+  /*
+    After BONUS:
+    NEW GAME
+  */
 
-  if(
-    bonusRound
-  ){
+  if(bonusRound){
 
     restartGame();
 
@@ -1043,29 +1300,24 @@ function nextRound(){
 
   }
 
+  /*
+    ROUND 1  2
+    ROUND 2  3
+  */
+
   if(
     currentRound < totalRounds
   ){
 
     currentRound++;
 
-    gameOver = false;
-
     currentWord = "";
 
     time = 90;
 
-    timeText.innerText =
-      time;
+    gameOver = false;
 
     generateLetters();
-
-    message.innerHTML =
-      "TIME 90<br>" +
-      "ROUND " +
-      currentRound +
-      " OF " +
-      totalRounds;
 
     roundBtn.innerText =
       "NEXT ROUND";
@@ -1076,83 +1328,24 @@ function nextRound(){
 
   }
 
+  /*
+    ROUND 3  BONUS
+  */
+
   startBonusRound();
 
 }
 
-/* =========================
-/ TIMER DISPLAY /
-/ ========================= */
-
-function updateTimerDisplay(){
-
-  timeText.innerText =
-    time;
-
-  if(time <= 10){
-
-    timeText.style.color =
-      "#b23b3b";
-
-    timeText.style.fontWeight =
-      "900";
-
-    timeText.style.animation =
-      "timerBlink .6s infinite";
-
-  }else{
-
-    timeText.style.color = "";
-
-    timeText.style.fontWeight = "";
-
-    timeText.style.animation = "";
-
-  }
-
-}
 
 /* =========================
-/ TIMER /
-/ ========================= */
-
-function startTimer(){
-
-  clearInterval(timer);
-
-  timer =
-    setInterval(
-      () => {
-
-        if(time > 0){
-
-          time--;
-
-          updateTimerDisplay();
-
-        }
-
-        if(time <= 0){
-
-          clearInterval(timer);
-
-          endNormalRound();
-
-        }
-
-      },
-      1000
-    );
-
-}
-
-/* =========================
-/ RESTART / NEW GAME /
-/ ========================= */
+   NEW GAME
+========================= */
 
 function restartGame(){
 
   clearInterval(timer);
+
+  currentLetters = [];
 
   currentWord = "";
 
@@ -1160,31 +1353,22 @@ function restartGame(){
 
   time = 90;
 
+  gameOver = false;
+
   currentRound = 1;
 
   bonusRound = false;
 
   bonusTarget = "";
 
-  gameOver = false;
-
   roundScores =
     [0,0,0,0];
 
   scoreText.innerText =
-    0;
-
-  timeText.innerText =
-    90;
-
-  updateTimerDisplay();
+    "0";
 
   roundBtn.innerText =
     "NEXT ROUND";
-
-  message.innerHTML =
-    "TIME 90<br>" +
-    "ROUND 1 OF 3";
 
   generateLetters();
 
@@ -1192,97 +1376,81 @@ function restartGame(){
 
 }
 
+
 /* =========================
-/ BUTTON CONNECTIONS /
-/ ========================= */
-
-const deleteBtn =
-  document.getElementById(
-    "deleteBtn"
-  );
-
-const shuffleBtn =
-  document.getElementById(
-    "shuffleBtn"
-  );
-
-const clearBtn =
-  document.getElementById(
-    "clearBtn"
-  );
-
-const submitBtn =
-  document.getElementById(
-    "submitBtn"
-  );
+   BUTTONS
+========================= */
 
 if(deleteBtn){
 
-  deleteBtn.onclick =
-    deleteLetter;
+  deleteBtn.onclick = () => {
+
+    playActionSound();
+    vibrate();
+
+    deleteLetter();
+
+  };
 
 }
 
 if(shuffleBtn){
 
-  shuffleBtn.onclick =
-    shuffleLetters;
+  shuffleBtn.onclick = () => {
+
+    playActionSound();
+    vibrate();
+
+    shuffleLetters();
+
+  };
 
 }
 
 if(clearBtn){
 
-  clearBtn.onclick =
-    clearWord;
+  clearBtn.onclick = () => {
+
+    playActionSound();
+    vibrate();
+
+    clearWord();
+
+  };
 
 }
 
 if(submitBtn){
 
-  submitBtn.onclick =
-    submitWord;
+  submitBtn.onclick = () => {
+
+    playSubmitSound();
+    vibrate();
+
+    submitWord();
+
+  };
 
 }
 
 if(roundBtn){
 
-  roundBtn.onclick =
-    nextRound;
+  roundBtn.onclick = () => {
+
+    playRestartSound();
+    vibrate();
+
+    nextRound();
+
+  };
 
 }
-
 /* =========================
-/ TIMER BLINK CSS /
-/ ========================= */
-
-const timerStyle =
-  document.createElement(
-    "style"
-  );
-
-timerStyle.innerHTML = `
-@keyframes timerBlink {
-  0%,100% { opacity:1; }
-  50% { opacity:.35; }
-}
-`;
-
-document.head.appendChild(
-  timerStyle
-);
-
-/* =========================
-/ START /
-/ ========================= */
+   START GAME
+========================= */
 
 loadHighScore();
 
 generateLetters();
-
-updateTimerDisplay();
-
-message.innerHTML =
-  "TIME 90<br>" +
-  "ROUND 1 OF 3";
 
 startTimer();

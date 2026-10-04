@@ -378,44 +378,41 @@ const audioState =
 document.getElementById("audioState");
 
 let audioEnabled =
-localStorage.getItem("audioEnabled");
-
+localStorage.getItem("audio");
 
 if(audioEnabled === null){
 
-  audioEnabled = "true";
+  audioEnabled = "on";
 
   localStorage.setItem(
-    "audioEnabled",
-    "true"
+    "audio",
+    "on"
   );
 
 }
 
-
 function updateAudio(){
 
   audioState.textContent =
-  audioEnabled === "true"
-  ? "ON"
-  : "OFF";
+    audioEnabled === "on"
+    ? "ON"
+    : "OFF";
 
 }
 
 updateAudio();
-
 
 audioBtn.addEventListener(
 "click",
 function(){
 
   audioEnabled =
-  audioEnabled === "true"
-  ? "false"
-  : "true";
+    audioEnabled === "on"
+    ? "off"
+    : "on";
 
   localStorage.setItem(
-    "audioEnabled",
+    "audio",
     audioEnabled
   );
 
@@ -434,44 +431,41 @@ const vibrationState =
 document.getElementById("vibrationState");
 
 let vibrationEnabled =
-localStorage.getItem("vibrationEnabled");
-
+localStorage.getItem("vibration");
 
 if(vibrationEnabled === null){
 
-  vibrationEnabled = "true";
+  vibrationEnabled = "on";
 
   localStorage.setItem(
-    "vibrationEnabled",
-    "true"
+    "vibration",
+    "on"
   );
 
 }
 
-
 function updateVibration(){
 
   vibrationState.textContent =
-  vibrationEnabled === "true"
-  ? "ON"
-  : "OFF";
+    vibrationEnabled === "on"
+    ? "ON"
+    : "OFF";
 
 }
 
 updateVibration();
-
 
 vibrationBtn.addEventListener(
 "click",
 function(){
 
   vibrationEnabled =
-  vibrationEnabled === "true"
-  ? "false"
-  : "true";
+    vibrationEnabled === "on"
+    ? "off"
+    : "on";
 
   localStorage.setItem(
-    "vibrationEnabled",
+    "vibration",
     vibrationEnabled
   );
 
