@@ -154,16 +154,38 @@ fetch("words.txt")
 
 
 /* ========================= */
-/* HIGH SCORE */
-/* ========================= */
+/* =========================
+   HIGH SCORE
+========================= */
 
-const highScore =
-localStorage.getItem("highScore") || "0";
+function loadHighScore(){
 
-document.getElementById(
-"highScore"
-).textContent =
-highScore;
+  if(!highScoreText)
+    return;
+
+  highScoreText.innerText =
+    localStorage.getItem("highScore") || "0";
+
+}
+
+
+function saveHighScore(points){
+
+  const oldHighScore =
+    Number(
+      localStorage.getItem("highScore") || 0
+    );
+
+  if(points > oldHighScore){
+
+    localStorage.setItem(
+      "highScore",
+      points
+    );
+
+  }
+
+}
 
 
 /* =========================
@@ -1445,6 +1467,10 @@ if(roundBtn){
   };
 
 }
+
+
+
+
 /* =========================
    START GAME
 ========================= */
@@ -1454,3 +1480,8 @@ loadHighScore();
 generateLetters();
 
 startTimer();
+
+
+
+
+

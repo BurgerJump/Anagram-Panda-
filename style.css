@@ -65,12 +65,12 @@ height:100dvh;
   padding:
     calc(8px + env(safe-area-inset-top))
     8px
-    0;
+8px;
 
   display:flex;
   flex-direction:column;
 
-  gap:2px;
+  gap:4px;
 
   overflow:hidden;
 }
@@ -147,7 +147,7 @@ color:#574634;
 
 font-family:inherit;
 
-font-size:14px;
+font-size:18px;
 font-weight:700;
 
 line-height:1;
