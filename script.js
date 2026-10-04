@@ -582,7 +582,7 @@ function vibrate(){
 
   if(navigator.vibrate){
 
-    navigator.vibrate(20);
+    navigator.vibrate(30);
 
   }
 
@@ -845,7 +845,7 @@ function showValidWordResult(
     );
 
   message.innerHTML =
-    "<span style='font-size:26px'>" +
+    "<span style='font-size:22px'>" +
     word +
     "</span>" +
     "  +" +
@@ -882,7 +882,7 @@ function showValidWordResult(
 
     message.innerHTML +=
       "<br><br>" +
-      "<span style='font-size:13px'>" +
+      "<span style='font-size:18px'>" +
       "LONGEST (" +
       result.bestWord.length +
       ") " +
