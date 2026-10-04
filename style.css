@@ -52,40 +52,27 @@ height:100dvh;
 /* =========================================================
    GAME
    ========================================================= */
-
 .game{
+  position:relative;
 
-position:relative;
+  width:100%;
+  max-width:520px;
 
-width:100%;
-max-width:520px;
+  height:100dvh;
 
-height:100vh;
-height:100dvh;
+  margin:0 auto;
 
-margin:0 auto;
+  padding:
+    calc(8px + env(safe-area-inset-top))
+    8px
+    0;
 
-padding:
-8px
-8px
-8px;
+  display:flex;
+  flex-direction:column;
 
-padding-top:
-calc(
-8px +
-env(safe-area-inset-top)
-);
+  gap:2px;
 
-text-align:center;
-
-color:#efe4cd;
-
-display:flex;
-flex-direction:column;
-
-gap:10px;
-
-overflow:hidden;
+  overflow:hidden;
 }
 
 
@@ -94,101 +81,116 @@ overflow:hidden;
    ========================================================= */
 
 .gameLogo{
+  display:block;
 
-display:block;
+  width:100%;
 
-width:100%;
+  margin:0;
 
-margin:0;
+  border-radius:18px;
 
-border-radius:18px;
+  overflow:hidden;
 
-overflow:hidden;
+  flex-shrink:0;
 
-flex-shrink:0;
+  line-height:0;
 }
-
-.gameLogo img{
-
-display:block;
-
-width:100%;
-height:auto;
-
-max-width:none;
-
-border-radius:18px;
-}
-
 
 /* =========================================================
    GAME HEADER
-   TIMER + HIGH SCORE + MENU
    ========================================================= */
 
 .topBar{
+  position:relative;
 
-position:relative;
+  width:100%;
+  min-height:48px;
 
-width:100%;
+  display:grid;
+  grid-template-columns:1fr 1fr 48px;
 
-display:flex;
-align-items:center;
+  align-items:center;
 
-gap:8px;
+  margin:0;
 
-min-height:48px;
-
-flex-shrink:0;
+  flex-shrink:0;
 }
 
-
 /* =========================================================
-   TIMER / HIGH SCORE
+   POINTS / HIGH SCORE
    ========================================================= */
 
-.timer,
-.score{
+.scoreBox{
 
-min-height:48px;
+height:48px;
 
 display:flex;
 align-items:center;
 justify-content:center;
 
-padding:
-8px
-13px;
+gap:7px;
+
+padding:12px;
 
 border-radius:14px;
 
-background:
-rgba(239,228,205,0.90);
+background:rgba(239,228,205,0.94);
 
 border:
 2px solid rgba(84,66,46,0.18);
 
 box-shadow:
-0 4px 0 #8c7659,
-0 7px 12px rgba(0,0,0,0.16);
+0 5px 0 #8c7659,
+0 8px 14px rgba(0,0,0,0.16);
 
 color:#574634;
 
-font-size:20px;
-font-weight:900;
+font-family:inherit;
+
+font-size:14px;
+font-weight:700;
 
 line-height:1;
 
-text-shadow:none;
-
 white-space:nowrap;
-
-flex:1;
 }
 
-.score{
+
+/* POINTS */
+
+.pointsBox{
 
 flex:1;
+
+}
+
+
+/* HIGH */
+
+.highBox{
+
+flex:1;
+
+}
+
+
+/* NUMBERS */
+
+.scoreBox span:last-child{
+
+font-weight:900;
+
+}
+
+.scoreLabel{
+
+font-weight:700;
+}
+
+#score,
+#highScore{
+
+font-weight:800;
 }
 
 
@@ -235,8 +237,9 @@ box-shadow:
 z-index:1001;
 
 cursor:pointer;
-
 }
+
+
 
 .menuBtn:active{
 
@@ -380,49 +383,33 @@ box-shadow:
 /* =========================================================
    WORD SLOTS
    ========================================================= */
-
 .wordSlots{
-
-display:flex;
-
-justify-content:center;
-
-gap:4px;
-
-flex-wrap:wrap;
-
-min-height:42px;
-
-flex-shrink:0;
+  min-height:45px;
+  height:45px;
+  margin:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  flex-shrink:0;
 }
 
 .slot{
-
-width:36px;
-height:40px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-background:
-rgba(239,228,205,0.88);
-
-border:
-2px solid rgba(84,66,46,0.18);
-
-border-radius:8px;
-
-font-size:24px;
-font-weight:900;
-
-color:#574634;
-
-text-shadow:none;
-
-box-shadow:
-0 3px 0 #8c7659;
+  width:38px;
+  height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  background:rgba(239,228,205,.94);
+  color:#46533a;
+  font-size:22px;
+  font-weight:900;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,.12);
 }
+
+
+
 
 
 /* =========================================================
@@ -430,72 +417,14 @@ box-shadow:
    ========================================================= */
 
 .lettersGrid{
+  width:100%;
 
-display:grid;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
 
-grid-template-columns:
-repeat(3,1fr);
+  gap:6px;
 
-gap:6px;
-
-width:100%;
-
-flex-shrink:0;
-}
-
-.letterBtn{
-
-width:100%;
-height:92px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-border:none;
-border-radius:16px;
-
-background:#806348;
-
-color:#efe4cd;
-
-font-family:inherit;
-
-font-size:36px;
-font-weight:900;
-
-line-height:1;
-
-text-shadow:none;
-
-box-shadow:
-0 6px 0 #59432f,
-0 9px 14px rgba(0,0,0,0.18);
-
-cursor:pointer;
-
--webkit-text-size-adjust:none;
-text-size-adjust:none;
-
-transition:
-transform 0.06s ease,
-box-shadow 0.06s ease;
-}
-
-.letterBtn:active{
-
-transform:
-translateY(5px);
-
-box-shadow:
-0 1px 0 #59432f,
-0 3px 7px rgba(0,0,0,0.14);
-}
-
-.letterBtn:disabled{
-
-opacity:0.35;
-
+  flex-shrink:0;
 }
 
 
@@ -504,22 +433,16 @@ opacity:0.35;
    ========================================================= */
 
 .buttons{
+  display:grid;
 
-display:flex;
+  grid-template-columns:repeat(3,1fr);
 
-gap:8px;
+  gap:6px;
 
-width:100%;
+  margin:0;
 
-flex-shrink:0;
+  flex-shrink:0;
 }
-
-.buttons button{
-
-flex:1;
-}
-
-
 /* =========================================================
    ALL GAME BUTTONS
    ========================================================= */
@@ -582,373 +505,80 @@ box-shadow:
    ========================================================= */
 
 .submitBtn{
+  width:100%;
 
-width:100%;
+  height:38px;
 
-min-height:52px;
+  margin:0;
 
-padding:
-10px
-20px;
+  border:0;
+  border-radius:9px;
 
-font-size:22px;
+  background:#596b45;
+  color:#efe4cd;
 
-flex-shrink:0;
+  font-family:inherit;
+  font-size:14px;
+  font-weight:900;
+
+  flex-shrink:0;
 }
-
 
 /* =========================================================
    MESSAGE
    ========================================================= */
 
 .message{
+  width:100%;
 
-width:100%;
+  flex:1 1 0;
+  min-height:0;
 
-height:140px;
+  height:auto;
+  max-height:none;
 
-min-height:120px;
-max-height:140px;
+  margin:0;
 
-padding:8px;
+  padding:8px;
 
-margin:0;
+  border-radius:8px;
 
-overflow-y:auto;
+  background:rgba(239,228,205,.75);
+  color:#46533a;
 
-background:
-rgba(239,228,205,0.78);
+  font-size:15px;
+  font-weight:800;
+  line-height:1.35;
 
-border:
-2px solid rgba(84,66,46,0.18);
+  text-align:center;
 
-border-radius:14px;
-
-box-shadow:
-0 4px 0 #8c7659,
-0 8px 14px rgba(0,0,0,0.15);
-
-font-size:20px;
-
-font-weight:900;
-
-line-height:1.15;
-
-color:#574634;
-
-text-shadow:none;
-
-display:flex;
-flex-direction:column;
-
-justify-content:flex-start;
-
-text-align:center;
-
-flex-shrink:1;
-
--webkit-text-size-adjust:none;
-text-size-adjust:none;
+  overflow:hidden;
 }
-
 
 /* =========================================================
    RESTART
    ========================================================= */
 
 .restartBtn{
+  width:100%;
 
-position:fixed;
+  height:38px;
 
-bottom:
-calc(
-8px +
-env(safe-area-inset-bottom)
-);
+  margin:0;
 
-left:50%;
+  border:0;
+  border-radius:9px;
 
-transform:
-translateX(-50%);
+  background:#806348;
+  color:#efe4cd;
 
-width:
-calc(100% - 16px);
+  font-family:inherit;
+  font-size:14px;
+  font-weight:900;
 
-max-width:504px;
-
-height:48px;
-
-font-size:21px;
-
-z-index:99999;
+  flex-shrink:0;
 }
 
-.restartBtn:active{
-
-transform:
-translateX(-50%)
-translateY(4px);
-
-}
-
-
-/* =========================================================
-   SHORT SCREENS
-   ========================================================= */
-
-@media(max-height:750px){
-
-.game{
-
-gap:8px;
-
-padding-top:
-calc(
-6px +
-env(safe-area-inset-top)
-);
-
-padding-bottom:6px;
-}
-
-.topBar{
-
-gap:6px;
-
-min-height:44px;
-}
-
-.timer,
-.score{
-
-min-height:44px;
-
-padding:6px 10px;
-
-font-size:18px;
-}
-
-.menuBtn{
-
-width:44px;
-height:44px;
-
-font-size:24px;
-}
-
-.menuPanel{
-
-top:48px;
-}
-
-.wordSlots{
-
-min-height:36px;
-
-gap:3px;
-}
-
-.slot{
-
-width:32px;
-height:34px;
-
-font-size:21px;
-}
-
-.lettersGrid{
-
-gap:5px;
-}
-
-.letterBtn{
-
-height:75px;
-
-font-size:32px;
-
-border-radius:14px;
-}
-
-.buttons{
-
-gap:6px;
-}
-
-.buttons button{
-
-min-height:42px;
-
-font-size:17px;
-
-padding:7px;
-}
-
-.submitBtn{
-
-min-height:46px;
-
-font-size:20px;
-}
-
-.message{
-
-height:72px;
-
-min-height:72px;
-max-height:72px;
-
-font-size:17px;
-
-padding:6px;
-
-border-radius:12px;
-}
-
-.restartBtn{
-
-height:42px;
-
-font-size:19px;
-
-bottom:
-calc(
-6px +
-env(safe-area-inset-bottom)
-);
-}
-
-}
-
-
-/* =========================================================
-   VERY SHORT SCREENS
-   ========================================================= */
-
-@media(max-height:650px){
-
-.game{
-
-gap:6px;
-
-padding-top:
-calc(
-4px +
-env(safe-area-inset-top)
-);
-
-padding-bottom:4px;
-}
-
-.timer,
-.score{
-
-font-size:16px;
-
-padding:4px 7px;
-
-min-height:40px;
-}
-
-.menuBtn{
-
-width:40px;
-height:40px;
-
-font-size:22px;
-}
-
-.menuPanel{
-
-top:44px;
-}
-
-.wordSlots{
-
-min-height:32px;
-}
-
-.slot{
-
-width:29px;
-height:30px;
-
-font-size:19px;
-}
-
-.letterBtn{
-
-height:64px;
-
-font-size:29px;
-}
-
-.buttons{
-
-gap:5px;
-}
-
-.buttons button{
-
-min-height:38px;
-
-font-size:15px;
-
-padding:6px;
-}
-
-.submitBtn{
-
-width:100%;
-
-min-height:52px;
-
-padding:
-10px
-20px;
-
-font-size:22px;
-
-background:#596b45;
-
-color:#efe4cd;
-
-box-shadow:
-0 5px 0 #3d4b30,
-0 8px 13px rgba(0,0,0,0.16);
-
-flex-shrink:0;
-}
-
-.submitBtn:active{
-
-transform:translateY(4px);
-
-box-shadow:
-0 1px 0 #3d4b30,
-0 3px 6px rgba(0,0,0,0.12);
-}
-
-.message{
-
-height:58px;
-
-min-height:58px;
-max-height:58px;
-
-font-size:15px;
-
-padding:5px;
-}
-
-.restartBtn{
-
-height:38px;
-
-font-size:18px;
-}
-
-}
 
 
 /* =========================================================
@@ -983,3 +613,8 @@ transition:none !important;
 
 }
 }
+
+
+
+
+
