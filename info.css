@@ -12,7 +12,7 @@ html{
 text-size-adjust:100%;
 
 margin:0;
-padding:0;
+padding:30;
 
 min-height:100%;
 }
@@ -424,7 +424,7 @@ margin:
 0
 9px;
 
-font-size:20px;
+font-size:26px;
 
 font-weight:900;
 
@@ -448,7 +448,7 @@ margin:
 0
 13px;
 
-font-size:15px;
+font-size:20px;
 
 font-weight:bold;
 
@@ -625,7 +625,7 @@ margin:
 0
 0;
 
-font-size:14px;
+font-size:20px;
 
 line-height:1.4;
 

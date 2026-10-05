@@ -83,7 +83,8 @@ key3Sound.preload = "auto";
 const key4Sound = new Audio("key4.mp3");
 key4Sound.preload = "auto";
 
-
+const noSound = new Audio("no.mp3");
+noSound.preload = "auto";
 
 
 
@@ -377,7 +378,7 @@ function resetLetterButtons(){
     button.disabled = false;
 
     button.style.opacity = 1;
-
+button.style.background = "#5f6b4a";
   });
 
 }
@@ -465,6 +466,7 @@ function deleteLetter(){
       buttons[i].disabled = false;
 
       buttons[i].style.opacity = 1;
+buttons[i].style.background = "#5f6b4a";
 
       break;
 
@@ -887,7 +889,7 @@ function showValidWordResult(
       "LONGEST (" +
       result.bestWord.length +
       ") " +
-      longestWords.join(" � ") +
+      longestWords.join(" ● ") +
       "</span>";
 
   }
@@ -926,7 +928,7 @@ function submitNormalWord(word){
 
     message.innerHTML =
       "MIN 3 LETTERS";
-
+playSound(noSound);
     return false;
 
   }
@@ -935,7 +937,7 @@ function submitNormalWord(word){
 
     message.innerHTML =
       "INVALID WORD";
-
+playSound(noSound);
     return false;
 
   }
@@ -944,10 +946,13 @@ function submitNormalWord(word){
 
     message.innerHTML =
       "INVALID WORD";
-
+playSound(noSound);
     return false;
 
   }
+
+playSubmitSound();
+
 
   const result =
     calculateScore(word);
@@ -1464,7 +1469,7 @@ if(submitBtn){
 
   submitBtn.onclick = () => {
 
-    playSubmitSound();
+  
     vibrate();
 
     submitWord();
