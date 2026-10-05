@@ -469,29 +469,95 @@ updateVibration();
 const highScore =
 localStorage.getItem("highScore") || "—";
 
-const highScoreWord =
-localStorage.getItem("highScoreWord") || "—";
-
-const highScoreDate =
-localStorage.getItem("highScoreDate") || "—";
-
 
 document.getElementById(
 "highScore"
 ).textContent =
 highScore;
 
+/* ========================= */
+/* INSTALL APP */
+/* ========================= */
 
-document.getElementById(
-"highScoreWord"
-).textContent =
-highScoreWord;
+let deferredInstallPrompt = null;
+
+window.addEventListener(
+  "beforeinstallprompt",
+  function(event){
+
+    event.preventDefault();
+
+    deferredInstallPrompt = event;
+
+  }
+);
+
+const installBtn =
+  document.getElementById("installBtn");
+
+if(installBtn){
+
+  installBtn.addEventListener(
+    "click",
+    async function(){
+
+      if(!deferredInstallPrompt){
+
+        alert(
+          "La instalación no está disponible todavía."
+        );
+
+        return;
+
+      }
+
+      deferredInstallPrompt.prompt();
+
+      await deferredInstallPrompt.userChoice;
+
+      deferredInstallPrompt = null;
+
+    }
+  );
+
+}
+
+window.addEventListener(
+  "appinstalled",
+  function(){
+
+    deferredInstallPrompt = null;
+
+  }
+);
+
+/* ========================= */
+/* SERVICE WORKER */
+/* ========================= */
+
+if("serviceWorker" in navigator){
+
+  window.addEventListener(
+    "load",
+    function(){
+
+      navigator.serviceWorker.register(
+        "/sw.js"
+      ).catch(function(error){
+
+        console.log(
+          "Service Worker error:",
+          error
+        );
+
+      });
+
+    }
+  );
+
+}
 
 
-document.getElementById(
-"highScoreDate"
-).textContent =
-highScoreDate;
 
 </script>
 
