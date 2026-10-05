@@ -459,9 +459,7 @@ font-family:inherit;
 
 font-weight:900;
 
-color:#efe4cd;
 
-background:#806348;
 
 box-shadow:
 0 5px 0 #59432f,
@@ -514,7 +512,7 @@ box-shadow:
   border:0;
   border-radius:9px;
 
-  background:#596b45;
+  background:rgba(239,228,205,0.94);
   color:#efe4cd;
 
   font-family:inherit;

@@ -103,6 +103,11 @@ aria-hidden="true">
     MENU
   </div>
 
+<a href="index.html">
+MAIN
+</a>
+
+
 <button type="button" id="audioBtn">
   AUDIO&nbsp;<span id="audioState">ON</span>
 </button>
@@ -1127,7 +1132,21 @@ flex-shrink:0;
 transform:translateY(2px);
 
 }
+@keyframes restartBlink {
+  0%, 100% {
+    background: #72543d;
+    color: #efe4cd;
+  }
 
+  50% {
+    background: #8a9568;
+color: #efe4cd;
+  }
+}
+
+.restartBtn.blink {
+  animation: restartBlink .7s infinite;
+}
 
 /* =====================================================
    POPUP

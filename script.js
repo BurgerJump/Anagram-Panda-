@@ -414,8 +414,9 @@ function selectLetter(index){
 
   button.disabled = true;
 
-  button.style.opacity = 0.3;
-
+ 
+button.style.opacity = 0.65;
+button.style.background = "#72543d";
   playKeySound();
 
   vibrate();
@@ -911,6 +912,7 @@ function finishNormalRound(){
   roundBtn.innerText =
     "NEXT ROUND";
 
+roundBtn.classList.add("blink");
 }
 
 
@@ -1090,6 +1092,10 @@ function submitWord(){
    TIME UP � NORMAL
 ========================= */
 
+/* =========================
+   TIME UP — NORMAL
+========================= */
+
 function timeUpNormalRound(){
 
   clearInterval(timer);
@@ -1135,8 +1141,8 @@ function timeUpNormalRound(){
   }
 
   /*
-    TIME UP is only shown when
-    there was no valid word.
+    TIME UP
+    No valid word was submitted.
   */
 
   gameOver = true;
@@ -1145,9 +1151,7 @@ function timeUpNormalRound(){
     findBestWord();
 
   const longestWords =
-    getLongestWords(
-      bestWord
-    );
+    getLongestWords(bestWord);
 
   message.innerHTML =
     "<strong>TIME UP</strong>";
@@ -1155,12 +1159,12 @@ function timeUpNormalRound(){
   if(longestWords.length){
 
     message.innerHTML +=
-      "<br><br>" +
-      "<span style='font-size:13px'>" +
+      "<br>" +
+      "<span style='font-size:18px'>" +
       "LONGEST (" +
       bestWord.length +
-      ") " +
-      longestWords.join(" � ") +
+      ")<br>" +
+      longestWords.join(" · ") +
       "</span>";
 
   }
@@ -1197,8 +1201,12 @@ function timeUpBonusRound(){
     "</span>" +
     "<br>0 POINTS";
 
+
+
   roundBtn.innerText =
     "NEW GAME";
+
+roundBtn.classList.add("blink");
 
   saveHighScore(score);
 
@@ -1264,6 +1272,9 @@ function startBonusRound(){
 
   gameOver = false;
 
+roundBtn.classList.remove("blink");
+
+
   currentWord = "";
 
   time = 90;
@@ -1292,6 +1303,8 @@ function finishBonusRound(){
 
   roundBtn.innerText =
     "NEW GAME";
+
+roundBtn.classList.add("blink");
 
   saveHighScore(score);
 
@@ -1338,6 +1351,8 @@ function nextRound(){
     time = 90;
 
     gameOver = false;
+
+  roundBtn.classList.remove("blink");
 
     generateLetters();
 
@@ -1395,6 +1410,9 @@ function restartGame(){
   generateLetters();
 
   startTimer();
+  
+roundBtn.classList.remove("blink");
+
 
 }
 
